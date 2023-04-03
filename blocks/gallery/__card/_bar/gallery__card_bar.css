@@ -1,0 +1,7 @@
+.gallery__card_bar{
+    display: flex;
+    position: relative;
+    height: 79px;
+    max-width: 282px;
+    align-items: center;
+}

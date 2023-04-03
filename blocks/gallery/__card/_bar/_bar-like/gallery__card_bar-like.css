@@ -1,0 +1,8 @@
+.gallery__card_bar-like{
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    bottom: 30px;
+    width: 21px;
+    height: 19px;
+}
