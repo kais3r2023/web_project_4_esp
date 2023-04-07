@@ -6,3 +6,6 @@
     width: 21px;
     height: 19px;
 }
+.gallery__card_bar-like:hover{
+    opacity: 0.5;
+}

@@ -2,4 +2,8 @@
     width: 24px;
     height: 24px;
     background: #000;
+    border: 0;
+}
+.profile__content_edit-button:hover{
+    opacity: 0.6;
 }
