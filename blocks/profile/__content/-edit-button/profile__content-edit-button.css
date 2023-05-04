@@ -1,9 +1,9 @@
-.profile__content_edit-button{
+.profile__content-edit-button{
     width: 24px;
     height: 24px;
     background: #000;
     border: 0;
 }
-.profile__content_edit-button:hover{
+.profile__content-edit-button:hover{
     opacity: 0.6;
 }

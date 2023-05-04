@@ -1,6 +1,6 @@
 
 /* Variables Globales */
-const editButton = document.querySelector('.profile__content_edit-button');
+const editButton = document.querySelector('.profile__content-edit-button');
 const popUpProfile = document.querySelector('#pop-up-profile');
 const closeButtonProfile = document.querySelector('#close-icon-profile');
 const formularyProfile = document.querySelector('#formulary-profile');
@@ -19,8 +19,8 @@ function handlerProfile (event) {
     event.preventDefault();
     const nameProfile = document.querySelector('#name-profile').value;
     const aboutMe = document.querySelector('#about-me').value;
-    const name = document.querySelector('.profile__content_name');
-    const about = document.querySelector('.profile__content_subtitle');
+    const name = document.querySelector('.profile__content-name');
+    const about = document.querySelector('.profile__content-subtitle');
     name.innerHTML= nameProfile;
     about.innerHTML= aboutMe;
     handlerDisplayPopUpProfile();
