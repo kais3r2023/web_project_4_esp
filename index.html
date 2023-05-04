@@ -20,73 +20,46 @@
         <button class="profile__content_edit-button"><img src="./images/Edit Button.png" alt="Button Edit"></button>
         <h3 class="profile__content_subtitle">Explorador</h3>
       </div>
-      <button class="profile__add-button"><img src="./images/Add Button.png" alt="Add Button"></button>
+      <button class="profile__add-button" id="add-button-place"><img src="./images/Add Button.png" alt="Add Button"></button>
       </div>
   </section>
-  <section class="gallery">
-    <div class="gallery__card">
-      <img class="gallery__card_photo" src="./images/Valle de Yosemite.jpg" alt="Photo Valle de Yosemite">
-      <div class="gallery__card_bar">
-        <h3 class="gallery__card_bar-title">Valle de Yosemite</h3>
-        <img class="gallery__card_bar-like" src="./images/like.png" alt="Corazón Like">
-      </div>
-      
-    </div>
-    <div class="gallery__card">
-      <img class="gallery__card_photo" src="./images/Lago Louise.png" alt="Photo Lago Louise">
-      <div class="gallery__card_bar">
-        <h3 class="gallery__card_bar-title">Lago Louise</h3>
-        <img class="gallery__card_bar-like" src="./images/like.png" alt="Corazón Like">
-      </div>
-      
-    </div>
-    <div class="gallery__card">
-      <img class="gallery__card_photo" src="./images/Montañas Calvas.png" alt="Photo Montañas Calvas">
-      <div class="gallery__card_bar">
-        <h3 class="gallery__card_bar-title">Montañas Calvas</h3>
-        <img class="gallery__card_bar-like" src="./images/like.png" alt="Corazón Like">
-      </div>
-    </div>
-    <div class="gallery__card">
-      <img class="gallery__card_photo" src="./images/Latemar.png" alt="Photo Latemar">
-      <div class="gallery__card_bar">
-        <h3 class="gallery__card_bar-title">Latemar</h3>
-        <img class="gallery__card_bar-like" src="./images/like.png" alt="Corazón Like">
-      </div>
-      
-    </div>
-    <div class="gallery__card">
-      <img class="gallery__card_photo" src="./images/Vanoise National Park.png" alt="Photo Vanoise National Park">
-      <div class="gallery__card_bar">
-        <h3 class="gallery__card_bar-title">Vanoise National Park</h3>
-        <img class="gallery__card_bar-like" src="./images/like.png" alt="Corazón Like">
-      </div>
-      
-    </div>
-    <div class="gallery__card">
-      <img class="gallery__card_photo" src="./images/Lago di Braies.png" alt="Photo Lago di Braies">
-      <div class="gallery__card_bar">
-        <h3 class="gallery__card_bar-title">Lago di Braies</h3>
-        <img class="gallery__card_bar-like" src="./images/like.png" alt="Corazón Like">
-      </div>
-    </div>
+  <section class="gallery" id="gallery">
   </section>
   <footer class="footer">
     <h3 class="footer__text">© 2023 Alrededor de los EEUU</h3>
   </footer>
   </div>
-  <div class="pop-up">
+  <div class="pop-up" id="pop-up-profile">
     <div class="pop-up__container">
-      <img class="pop-up__close-icon" src="./images/Close Icon.png" alt="icono de cerrar">
-      <form class="formulary">
+      <img class="pop-up__close-icon" id="close-icon-profile" src="./images/Close Icon.png" alt="icono de cerrar profile">
+      <form class="formulary" id="formulary-profile">
         <h2 class="formulary__title">Edit profile</h2>
-        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" maxlength="25" value="Jacques Cousteau">
-        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" maxlength="25" value="Explorador">
+        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" maxlength="25">
+        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" maxlength="25">
         <button type="submit" class="formulary__save-button">Guardar
         </button>
     </form>
     </div>
   </div>
-  <script src="./page/index.js"></script>
+  <div class="pop-up" id="pop-up-place">
+    <div class="pop-up__container">
+      <img class="pop-up__close-icon" id="close-icon-place" src="./images/Close Icon.png" alt="icono de cerrar place">
+      <form class="formulary" id="formulary-place">
+        <h2 class="formulary__title">Nuevo lugar</h2>
+        <input class="formulary__data" id="place-title" type="text" placeholder="Título">
+        <input class="formulary__data" id="photo-link" type="link" placeholder="Enlace a la imagen">
+        <button type="submit" class="formulary__save-button" id="btn-place-save">Crear
+        </button>
+    </form>
+    </div>
+  </div>
+  <div class="template-zoom" id="template-zoom">
+  <div class="template-zoom__container">
+  <img class="template-zoom__image" id="zoom-img-src">
+  <img class="template-zoom__close-icon" id="close-icon-zoom" src="./images/Close Icon.png" alt="icono de cerrar zoom" onclick="addClassOpenZoom()">
+  <h4 class="template-zoom__title" id="zoom-img-title"></h4>
+  </div>
+</div>
+<script src="./page/index.js"></script>
 </body>
 </html>

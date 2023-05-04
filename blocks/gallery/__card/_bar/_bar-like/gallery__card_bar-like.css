@@ -9,3 +9,7 @@
 .gallery__card_bar-like:hover{
     opacity: 0.5;
 }
+
+.black-like{
+    background-image: url(/images/black-like.png);
+}
