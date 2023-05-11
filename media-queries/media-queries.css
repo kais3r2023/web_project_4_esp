@@ -1,4 +1,10 @@
 @media screen and (max-width:320px){
+
+    .page{
+        width: 282px;
+        margin-top: 28px;
+    }
+
     .header__logo{
         width: 126px;
         height: 24px;
@@ -15,6 +21,10 @@
     .profile__avatar{
         margin-top: 38px;
     }
+
+    .profile__content{
+        width: 200px;
+    }
     .profile__content_name{
         margin-top: 26px;
         font-size: 22px;
@@ -28,9 +38,8 @@
     }
     .profile__add-button{
         margin-left: 0;
-        width: 282px;
+        width: 270px;
         height: 50px;
-        margin-top: 36px;
 
     }
     .gallery{
@@ -40,6 +49,7 @@
         justify-items: center;
         gap: 20px;
     }
+
     .footer{
         width: 282px;
         margin-top: 50px;
@@ -50,5 +60,33 @@
         margin-left: 19px;
         font-size: 14px;
         line-height: 17px;
+    }
+    .pop-up__close-icon{
+        top: -30px;
+        right: -1px;
+        width: 26px;
+        height: 26px;
+    }
+    .pop-up__container{
+        width: 282px;
+        height: 322px; 
+    }
+    
+    .formulary__title{
+        width: 238px;
+    }
+    .formulary__data{
+        width: 238px;
+    }
+    .formulary__save-button{
+        width: 238px;
+    }
+    .add-button-place{
+        width: 270px;
+        margin-top: 10px;
+    }
+    .template-zoom__image{
+        width: 240px;
+        height: 299px;
     }
 }
