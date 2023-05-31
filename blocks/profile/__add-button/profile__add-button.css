@@ -1,14 +1,12 @@
 .add-button-place{
     background: #000;
-    border: none;
+    border: 2px solid #fff;
     width: 150px;
     height: 50px;
 }
 .profile__add-button{
-    display: flex;
     background: #000;
     margin-right: 0;
-    justify-content: right;
 }
 .add-button-place:hover{
     opacity: 0.6;

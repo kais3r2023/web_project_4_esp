@@ -34,8 +34,10 @@
       <img class="pop-up__close-icon" id="close-icon-profile" src="./images/Close Icon.png" alt="icono de cerrar profile">
       <form class="formulary" id="formulary-profile">
         <h2 class="formulary__title">Edit profile</h2>
-        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" maxlength="25" value="Jacques Cousteau">
-        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" maxlength="25" value="Explorador">
+        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="40" value="Jacques Cousteau">
+        <span class = "formulary__input-error"></span>
+        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="200" value="Explorador">
+        <span class = "formulary__input-error"></span>
         <button type="submit" class="formulary__save-button">Guardar
         </button>
     </form>
@@ -46,8 +48,10 @@
       <img class="pop-up__close-icon" id="close-icon-place" src="./images/Close Icon.png" alt="icono de cerrar place">
       <form class="formulary" id="formulary-place">
         <h2 class="formulary__title">Nuevo lugar</h2>
-        <input class="formulary__data" id="place-title" type="text" placeholder="Título">
-        <input class="formulary__data" id="photo-link" type="link" placeholder="Enlace a la imagen">
+        <input class="formulary__data" id="place-title" type="text" minlength="2" maxlength="30" placeholder="Título">
+        <span class = "formulary__input-error"></span>
+        <input class="formulary__data" id="photo-link" type="url" placeholder="Enlace a la imagen">
+        <span class = "formulary__input-error"></span>
         <button type="submit" class="formulary__save-button" id="btn-place-save">Crear
         </button>
     </form>

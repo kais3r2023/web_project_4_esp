@@ -36,12 +36,6 @@
         font-size: 14px;
         line-height: 17px;
     }
-    .profile__add-button{
-        margin-left: 0;
-        width: 270px;
-        height: 50px;
-
-    }
     .gallery{
         margin-top: 36px;
         display: grid;
