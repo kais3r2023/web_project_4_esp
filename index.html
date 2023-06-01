@@ -32,29 +32,34 @@
   <div class="pop-up" id="pop-up-profile">
     <div class="pop-up__container">
       <img class="pop-up__close-icon" id="close-icon-profile" src="./images/Close Icon.png" alt="icono de cerrar profile">
-      <form class="formulary" id="formulary-profile">
+      
+      <form class="formulary" id="formulary-profile" novalidate>
         <h2 class="formulary__title">Edit profile</h2>
-        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="40" value="Jacques Cousteau">
-        <span class = "formulary__input-error"></span>
-        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="200" value="Explorador">
-        <span class = "formulary__input-error"></span>
+        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="40" value="Jacques Cousteau" required >
+        <span class = "name-profile-error "></span>
+        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="200" value="Explorador" required >
+        <span class = "about-me-error "></span>
         <button type="submit" class="formulary__save-button">Guardar
         </button>
     </form>
+
     </div>
   </div>
   <div class="pop-up" id="pop-up-place">
     <div class="pop-up__container">
       <img class="pop-up__close-icon" id="close-icon-place" src="./images/Close Icon.png" alt="icono de cerrar place">
-      <form class="formulary" id="formulary-place">
+      
+      <form class="formulary" id="formulary-place" novalidate>
         <h2 class="formulary__title">Nuevo lugar</h2>
-        <input class="formulary__data" id="place-title" type="text" minlength="2" maxlength="30" placeholder="Título">
-        <span class = "formulary__input-error"></span>
-        <input class="formulary__data" id="photo-link" type="url" placeholder="Enlace a la imagen">
-        <span class = "formulary__input-error"></span>
+        <input class="formulary__data" id="place-title" type="text" minlength="2" maxlength="30" placeholder="Título" required >
+        <span class = "place-title-error "></span>
+        <input class="formulary__data" id="photo-link" type="url" placeholder="Enlace a la imagen" required >
+        <span class = "photo-link-error "></span>
         <button type="submit" class="formulary__save-button" id="btn-place-save">Crear
         </button>
     </form>
+
+
     </div>
   </div>
   <div class="template-zoom" id="template-zoom">
@@ -63,7 +68,6 @@
   <img class="template-zoom__close-icon" id="close-icon-zoom" src="./images/Close Icon.png" alt="icono de cerrar zoom" onclick="addClassOpenZoom()">
   <h4 class="template-zoom__title" id="zoom-img-title"></h4>
   </div>
-  <p></p>
 </div>
 <script src="./page/index.js"></script>
 </body>

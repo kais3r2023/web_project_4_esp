@@ -63,7 +63,8 @@
     }
     .pop-up__container{
         width: 282px;
-        height: 322px; 
+        height: 322px;
+        top: 125px;
     }
     
     .formulary__title{
@@ -82,5 +83,8 @@
     .template-zoom__image{
         width: 240px;
         height: 299px;
+    }
+    .formulary__data-error_active{
+        width: 238px;
     }
 }

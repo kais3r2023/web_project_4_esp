@@ -7,4 +7,13 @@
     border: none;
     border-bottom: 1px solid rgba(0,0,0,0.15);
     margin-bottom: 30px;
+    outline: none;
+}
+
+.formulary__data:invalid{
+    border-bottom: 1px solid red;
+}
+
+.formulary__data:valid {
+    border-bottom: 1px solid green;
 }
