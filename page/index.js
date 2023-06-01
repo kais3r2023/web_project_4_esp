@@ -1,4 +1,3 @@
-
 /* Variables Globales */
 const editButton = document.querySelector('.profile__content-edit-button');
 const popUpProfile = document.querySelector('#pop-up-profile');
@@ -6,7 +5,14 @@ const closeButtonProfile = document.querySelector('#close-icon-profile');
 const formularyProfile = document.querySelector('#formulary-profile');
 const btnSave = document.querySelector('.formulary__save-button');
 const gallery = document.querySelector('#gallery');
-
+const popUpPlace = document.querySelector('#pop-up-place');
+const btnAdd = document.querySelector('#add-button-place');
+const btnClosePopUpPlace = document.querySelector("#close-icon-place");
+const formularyPlace = document.querySelector("#formulary-place");
+const templateZoom = document.querySelector("#template-zoom");
+const closeIconZoom = document.querySelector("#zoom-icon-zoom");
+const zoomImgSrc = document.querySelector("#zoom-img-src");
+const zoomTitle = document.querySelector("#zoom-img-title");
 
 
 /* funcion para cerrar editor de profile */
@@ -35,8 +41,7 @@ closeButtonProfile.addEventListener('click', handlerDisplayPopUpProfile);
 formularyProfile.addEventListener('submit', handlerProfile);
 
 
-const popUpPlace = document.querySelector('#pop-up-place');
-const btnAdd = document.querySelector('#add-button-place');
+
 
 function handlerPlace (event) {
     event.preventDefault();
@@ -45,7 +50,7 @@ function handlerPlace (event) {
 
 
 /* funcion para abrir y cerrar formulario para añadir tarjeta */
-const btnClosePopUpPlace = document.querySelector("#close-icon-place");
+
 
 function handlerDisplayPopUpPlace() {
   popUpPlace.classList.toggle('pop-up__open');
@@ -142,11 +147,6 @@ initialCards.forEach((card,index)=>{
 });
 
 
-/* funciones para añadir titulo e imagenes nuevas */
-
-
-const formularyPlace = document.querySelector("#formulary-place");
-  
 
 /* funcion para agregar nuevas tarjetas */
 
@@ -174,10 +174,7 @@ function handleBlackLike(likeId){
 
 /* Funcion para agrandar imagenes de Gallery */
 
-const templateZoom = document.querySelector("#template-zoom");
-const closeIconZoom = document.querySelector("#zoom-icon-zoom");
-const zoomImgSrc = document.querySelector("#zoom-img-src");
-const zoomTitle = document.querySelector("#zoom-img-title");
+
 
 function addClassOpenZoom(){
   templateZoom.classList.toggle('template-zoom__open');
@@ -188,57 +185,3 @@ function zoomImgPopUp(link, name){
   zoomImgSrc.src = link;
   zoomTitle.innerHTML = name;
 };
-
-/* Validacion de formularios */
-
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const btnDisable = formElement.querySelector(".formulary__save-button");
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add("formulary__data-error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("formulary__data-error_active");
-  btnDisable.classList.add("formulary__save-button_disable");
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const btnDisable = formElement.querySelector(".formulary__save-button");
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("formulary__data-error");
-  errorElement.classList.remove("formulary__data-error_active");
-  errorElement.textContent = "";
-  btnDisable.classList.remove("formulary__save-button_disable");
-};
-
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-    formularyProfile.removeEventListener('submit', handlerProfile);
-    formularyPlace.removeEventListener('submit', addNewCard);
-  } else {
-    hideInputError(formElement, inputElement);
-    formularyProfile.addEventListener('submit', handlerProfile);
-    formularyPlace.addEventListener('submit', addNewCard);
-  }
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".formulary__data"));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
-    });
-  });
-};
-
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".formulary"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    setEventListeners(formElement);
-  });
-};
-
-enableValidation();
