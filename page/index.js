@@ -20,6 +20,17 @@ function handlerDisplayPopUpProfile () {
     popUpProfile.classList.toggle('pop-up__open');
 }
 
+/*funcion para cerrar con boton escape */
+
+document.onkeydown = function (Evt){
+  if (Evt.key === "Escape"){
+    popUpProfile.classList.remove('pop-up__open');
+    popUpPlace.classList.remove('pop-up__open');
+  }
+};
+
+
+
 /* funcion para modificar perfil */
 function handlerProfile (event) {
     event.preventDefault();
@@ -60,111 +71,11 @@ btnAdd.addEventListener('click', handlerDisplayPopUpPlace);
 btnClosePopUpPlace.addEventListener('click', handlerDisplayPopUpPlace);
 
 /* funcion de borrado de Cards del tachito de basura */
-function deleteCard(cardId){
+function deleteCard (cardId){
   document.getElementById(cardId).remove();
 }
 
- /* Tarjetas iniciales del Gallery */
 
-
-  const initialCards = [
-    {
-      name: "Valle de Yosemite",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-    },
-    {
-      name: "Lago Louise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-    },
-    {
-      name: "Montañas Calvas",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-    },
-    {
-      name: "Latemar",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-    },
-    {
-      name: "Parque Nacional de la Vanoise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-    },
-    {
-      name: "Lago di Braies",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-    }
-  ];
-
-function cardsDefault (name, link, cardId, likeId) {
-
-  const divGalleryElement = document.createElement("div");
-  divGalleryElement.classList.add("gallery__card");
-  divGalleryElement.id = cardId;
-
-  const photoElement = document.createElement("img");
-  photoElement.classList.add("gallery__card_photo");
-  photoElement.src = link;
-  photoElement.alt = name;
-  photoElement.addEventListener("click", () => zoomImgPopUp(link, name));
-
-  const trashCanElement = document.createElement("img");
-  trashCanElement.classList.add("gallery__card_trash-can-icon");
-  trashCanElement.src = "./images/Trash-Can.png";
-  trashCanElement.alt = "Tachito de Basura";
-  trashCanElement.addEventListener("click", () => deleteCard(cardId));
-
-  const divBarElement = document.createElement("div");
-  divBarElement.classList.add("gallery__card_bar");
-
-  const titlePhotoElement = document.createElement("h3");
-  titlePhotoElement.classList.add("gallery__card_bar-title");
-  titlePhotoElement.textContent = name;
-
-  const likeImgElement = document.createElement("img");
-  likeImgElement.classList.add("gallery__card_bar-like");
-  likeImgElement.id = likeId;
-  likeImgElement.src = "./images/like.png";
-  likeImgElement.alt = "Corazon Like";
-  likeImgElement.addEventListener("click", () => handleBlackLike(likeId));
-
-  divBarElement.appendChild(titlePhotoElement);
-  divBarElement.appendChild(likeImgElement);
-  divGalleryElement.appendChild(trashCanElement);
-  divGalleryElement.appendChild(photoElement);
-  divGalleryElement.appendChild(divBarElement);
-  
-  return divGalleryElement;
-}
-
-initialCards.forEach((card,index)=>{
-  const name = card.name;
-  const link = card.link;
-  const cardId = "card-" + index;
-  const likeId = "like-" + index;
-
-  const cardComplete = cardsDefault (name, link, cardId, likeId);
-  
-  gallery.appendChild(cardComplete);
-});
-
-
-
-/* funcion para agregar nuevas tarjetas */
-
-function addNewCard(event){
-  event.preventDefault();
-  const name = document.querySelector("#place-title").value;
-  const link = document.querySelector("#photo-link").value;
-  const cardId = "card-" + gallery.children.length.toString();
-  const likeId = "like-" + gallery.children.length.toString();
-  
-  const cardComplete = cardsDefault (name, link, cardId, likeId);
-  gallery.appendChild(cardComplete);
-  
-  handlerDisplayPopUpPlace();
-  formularyPlace.reset();
-};
-
-formularyPlace.addEventListener('submit', addNewCard);
 
 /* Funcion para dar modificar corazon de like */
 

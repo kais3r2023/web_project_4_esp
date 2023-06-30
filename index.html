@@ -64,12 +64,21 @@
   </div>
   <div class="template-zoom" id="template-zoom">
   <div class="template-zoom__container">
-  <img class="template-zoom__image" id="zoom-img-src">
+  <img class="template-zoom__image" id="zoom-img-src" alt="">
   <img class="template-zoom__close-icon" id="close-icon-zoom" src="./images/Close Icon.png" alt="icono de cerrar zoom" onclick="addClassOpenZoom()">
   <h4 class="template-zoom__title" id="zoom-img-title"></h4>
   </div>
 </div>
+<template class="card">
+  <div class="gallery__card">
+    <img class="gallery__card_trash-can-icon" src="./images/Trash-Can.png" alt="Tachito de Basura">
+    <img class="gallery__card_photo" src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" alt="">
+    <div class="gallery__card_bar"><h3 class="gallery__card_bar-title">Valle de Yosemite</h3><img class="gallery__card_bar-like" src="./images/like.png" alt="Corazon Like">
+    </div>
+  </div>
+</template>
 <script src="./page/index.js"></script>
-<script src="./page/validate.js"></script>
+<script src="./page/fromValidator.js"></script>
+<script src="./page/card.js"></script>
 </body>
 </html>
