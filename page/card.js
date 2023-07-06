@@ -41,6 +41,53 @@ class Card{
 
       return cardElement;
     }
+
+    generateCard(){
+      this._element = this._getTemplate();
+      this._element.querySelector(".gallery__card_photo").src = this._link;
+      this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
+      this._element.querySelector(".gallery__card_photo").alt = this._name;
+      this._element.querySelector(".gallery__card_photo").addEventListener("click", ()=>{
+        this.zoomCard(this._link, this._name)})
+      this.deleteCard();
+      this.zoomCardOn();
+      this.zoomCardOff();
+      this.zoomCard();
+      this.handleBlackLike();
+      return this._element;
+    }
+
+    deleteCard(){
+      this._element.querySelector(".gallery__card_trash-can-icon").addEventListener("click", ()=>{
+        this._element.remove();
+      })
+    }
+
+    zoomCardOn(){
+      this._element.querySelector(".gallery__card_photo").addEventListener("click" , ()=>{ 
+      templateZoom.classList.add("template-zoom__open");
+      })
+    }
+
+    zoomCardOff(){
+      templateZoom.querySelector(".template-zoom__close-icon").addEventListener("click" , ()=>{ 
+        templateZoom.classList.remove("template-zoom__open");
+        })
+    }
+
+  zoomCard(){
+    zoomImgSrc.src = this._link;
+    zoomImgSrc.alt = this._name;
+    zoomTitle.textContent = this._name;
+    this.zoomCardOn();
+  }
+
+  handleBlackLike(){
+    this._element.querySelector(".gallery__card_bar-like").addEventListener("click", ()=>{
+      this._element.querySelector(".gallery__card_bar-like").classList.toggle("black-like");
+    })
+  }
+
   }
 
   class DefaultCard extends Card{
@@ -48,16 +95,7 @@ class Card{
     super(template);
     this._name = data.name;
     this._link = data.link;
-
-  }
-
-  generateCard(){
-    this._element = this._getTemplate();
-    this._element.querySelector(".gallery__card_photo").src = this._link;
-    this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
-    this._element.querySelector(".gallery__card_photo").alt = this._name;
-    return this._element;
-  }
+}
 
 }
 
@@ -79,14 +117,6 @@ class NewCard extends Card {
   super(template)
   this._name = document.querySelector("#place-title").value;
   this._link = document.querySelector("#photo-link").value;
-  }
-
-  generateCard(){
-    this._element = this._getTemplate();
-    this._element.querySelector(".gallery__card_photo").src = this._link;
-    this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
-    this._element.querySelector(".gallery__card_photo").alt = this._name;
-    return this._element;
   }
 }
 

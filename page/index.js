@@ -69,30 +69,3 @@ function handlerDisplayPopUpPlace() {
 
 btnAdd.addEventListener('click', handlerDisplayPopUpPlace);
 btnClosePopUpPlace.addEventListener('click', handlerDisplayPopUpPlace);
-
-/* funcion de borrado de Cards del tachito de basura */
-function deleteCard (cardId){
-  document.getElementById(cardId).remove();
-}
-
-
-
-/* Funcion para dar modificar corazon de like */
-
-function handleBlackLike(likeId){
-  document.getElementById(likeId).classList.toggle("black-like");
-};
-
-/* Funcion para agrandar imagenes de Gallery */
-
-
-
-function addClassOpenZoom(){
-  templateZoom.classList.toggle('template-zoom__open');
-};
-
-function zoomImgPopUp(link, name){
-  addClassOpenZoom();
-  zoomImgSrc.src = link;
-  zoomTitle.innerHTML = name;
-};
