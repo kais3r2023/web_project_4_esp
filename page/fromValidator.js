@@ -1,22 +1,52 @@
+class FormValidator {
+  constructor(id) {
+    this.element = document.getElementById(id);
+  }
+
+  /* Metodos Privados */
+_checkInputValidity (inputElement) {
+  const errorElement = this.element.querySelector(`.${inputElement.id}-error`);
+
+  if (inputElement.validity.valid) {
+    inputElement.classList.remove("formulary__data-error");
+    errorElement.classList.remove("formulary__data-error_active");
+    errorElement.textContent = "";
+    btnSave.classList.remove("formulary__save-button_disable");
+  } else {
+    inputElement.classList.add("formulary__data-error");
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add("formulary__data-error_active");
+    btnSave.classList.add("formulary__save-button_disable");
+  }
+};
+
+/*Metodo Público*/
+enableValidation()
+
+}
+
+
+
+
+
+
 
 /* Validacion de formularios */
 
 const showInputError = (formElement, inputElement, errorMessage) => {
-  const btnDisable = formElement.querySelector(".formulary__save-button");
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("formulary__data-error");
   errorElement.textContent = errorMessage;
   errorElement.classList.add("formulary__data-error_active");
-  btnDisable.classList.add("formulary__save-button_disable");
+  btnSave.classList.add("formulary__save-button_disable");
 };
 
 const hideInputError = (formElement, inputElement) => {
-  const btnDisable = formElement.querySelector(".formulary__save-button");
+  
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove("formulary__data-error");
   errorElement.classList.remove("formulary__data-error_active");
   errorElement.textContent = "";
-  btnDisable.classList.remove("formulary__save-button_disable");
+  btnSave.classList.remove("formulary__save-button_disable");
 };
 
 const checkInputValidity = (formElement, inputElement) => {
