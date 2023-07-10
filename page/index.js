@@ -1,71 +1,65 @@
+import { DefaultCard } from "./card.js";
+import { FormValidator } from "./fromValidator.js";
+
 /* Variables Globales */
-const editButton = document.querySelector('.profile__content-edit-button');
-const popUpProfile = document.querySelector('#pop-up-profile');
-const closeButtonProfile = document.querySelector('#close-icon-profile');
-const formularyProfile = document.querySelector('#formulary-profile');
-const btnSave = document.querySelector('.formulary__save-button');
-const gallery = document.querySelector('#gallery');
-const popUpPlace = document.querySelector('#pop-up-place');
-const btnAdd = document.querySelector('#add-button-place');
-const btnClosePopUpPlace = document.querySelector("#close-icon-place");
-const formularyPlace = document.querySelector("#formulary-place");
-const templateZoom = document.querySelector("#template-zoom");
-const closeIconZoom = document.querySelector("#zoom-icon-zoom");
-const zoomImgSrc = document.querySelector("#zoom-img-src");
-const zoomTitle = document.querySelector("#zoom-img-title");
+export const btnEdit = document.querySelector('.profile__content-edit-button');
+export const popUpProfile = document.querySelector('#pop-up-profile');
+export const closeButtonProfile = document.querySelector('#close-icon-profile');
+export const formularyProfile = document.querySelector('#formulary-profile');
+export const btnSave = document.querySelector('.formulary__save-button');
+export const gallery = document.querySelector('#gallery');
+export const popUpPlace = document.querySelector('#pop-up-place');
+export const btnAdd = document.querySelector('#add-button-place');
+export const btnClosePopUpPlace = document.querySelector("#close-icon-place");
+export const formularyPlace = document.querySelector("#formulary-place");
+export const templateZoom = document.querySelector("#template-zoom");
+export const closeIconZoom = document.querySelector("#zoom-icon-zoom");
+export const zoomImgSrc = document.querySelector("#zoom-img-src");
+export const zoomTitle = document.querySelector("#zoom-img-title");
 
+/* Array de Cartas Iniciales */
 
-/* funcion para cerrar editor de profile */
-function handlerDisplayPopUpProfile () {
-    popUpProfile.classList.toggle('pop-up__open');
-}
-
-/*funcion para cerrar con boton escape */
-
-document.onkeydown = function (Evt){
-  if (Evt.key === "Escape"){
-    popUpProfile.classList.remove('pop-up__open');
-    popUpPlace.classList.remove('pop-up__open');
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
-};
+];
+
+/* initialCards.forEach((data)=>{
+  const card = new DefaultCard(data, ".card");
+  const cardElement = card.generateCard();
+
+  document.querySelector(".gallery").append(cardElement);
+}); */
 
 
+/* Instaciado de Formularios */
 
-/* funcion para modificar perfil */
-function handlerProfile (event) {
-    event.preventDefault();
-    const nameProfile = document.querySelector('#name-profile').value;
-    const aboutMe = document.querySelector('#about-me').value;
-    const name = document.querySelector('.profile__content-name');
-    const about = document.querySelector('.profile__content-subtitle');
-    name.innerHTML= nameProfile;
-    about.innerHTML= aboutMe;
-    handlerDisplayPopUpProfile();
-    formularyProfile.reset();
-}
+/* const formProfile = new FormValidator("formulary-profile");
+const formPLace = new FormValidator("formulary-place");
+ */
+/* Ejecucion del metodo enableValidation */
 
-
-/* funciones para abrir editor tarjetas de imagenes */
-
-editButton.addEventListener('click', handlerDisplayPopUpProfile);
-closeButtonProfile.addEventListener('click', handlerDisplayPopUpProfile);
-formularyProfile.addEventListener('submit', handlerProfile);
-
-
-
-
-function handlerPlace (event) {
-    event.preventDefault();
-}
-
-
-
-/* funcion para abrir y cerrar formulario para añadir tarjeta */
-
-
-function handlerDisplayPopUpPlace() {
-  popUpPlace.classList.toggle('pop-up__open');
-}
-
-btnAdd.addEventListener('click', handlerDisplayPopUpPlace);
-btnClosePopUpPlace.addEventListener('click', handlerDisplayPopUpPlace);
+/* formProfile.enableValidation();
+formPLace.enableValidation(); */

@@ -1,33 +1,7 @@
+import {templateZoom, zoomImgSrc, zoomTitle, formularyPlace} from "./index.js";
+import {handlerDisplayPopUpPlace} from "./utils.js";
+
 /* Tarjetas Iniciales */
-
-
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-  }
-];
-
 
 class Card{
   
@@ -99,17 +73,6 @@ class Card{
 
 }
 
-
-
-initialCards.forEach((data)=>{
-  const card = new DefaultCard(data, ".card");
-  const cardElement = card.generateCard();
-
-  document.querySelector(".gallery").append(cardElement);
-})
-
-
-
 /* Tarjetas Nuevas */
 
 class NewCard extends Card {
@@ -120,12 +83,6 @@ class NewCard extends Card {
   }
 }
 
-const addNewCard = (()=>{
-  const card = new NewCard(".card");
-  const cardElement = card.generateCard();
-  document.querySelector(".gallery").append(cardElement);
-  handlerDisplayPopUpPlace()
-})
 
-formularyPlace.addEventListener('submit', addNewCard);
 
+export {Card, DefaultCard};
