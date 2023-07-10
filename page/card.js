@@ -1,6 +1,5 @@
 
 
-
 class Card{
   
   constructor(template){
@@ -72,14 +71,12 @@ class Card{
 }
 
 
-
 initialCards.forEach((data)=>{
   const card = new DefaultCard(data, ".card");
   const cardElement = card.generateCard();
 
   document.querySelector(".gallery").append(cardElement);
 })
-
 
 
 /* Tarjetas Nuevas */
@@ -100,4 +97,3 @@ const addNewCard = (()=>{
 })
 
 formularyPlace.addEventListener('submit', addNewCard);
-

@@ -11,12 +11,10 @@ _checkInputValidity (inputElement) {
     inputElement.classList.remove("formulary__data-error");
     errorElement.classList.remove("formulary__data-error_active");
     errorElement.textContent = "";
-    btnSave.classList.remove("formulary__save-button_disable");
   } else {
     inputElement.classList.add("formulary__data-error");
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add("formulary__data-error_active");
-    btnSave.classList.add("formulary__save-button_disable");
   }
 
   //Validando los inputs
