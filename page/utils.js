@@ -1,3 +1,15 @@
+import { formularyPlace, editButton, popUpProfile,popUpPlace,formularyProfile,closeButtonProfile,btnAdd,btnClosePopUpPlace,templateZoom } from "./index.js";
+import { NewCard } from "./card.js";
+
+
+const addNewCard = (()=>{
+  const card = new NewCard(".card");
+  const cardElement = card.generateCard();
+  document.querySelector(".gallery").append(cardElement);
+  handlerDisplayPopUpPlace()
+})
+formularyPlace.addEventListener('submit', addNewCard);
+
 /* funcion para cerrar editor de profile */
 function handlerDisplayPopUpProfile () {
   popUpProfile.classList.toggle('pop-up__open');
@@ -44,7 +56,9 @@ btnAdd.addEventListener('click', handlerDisplayPopUpPlace);
 btnClosePopUpPlace.addEventListener('click', handlerDisplayPopUpPlace);
 document.onkeydown = function (Evt){
   if (Evt.key === "Escape"){
+    templateZoom.classList.remove('template-zoom__open');
     popUpProfile.classList.remove('pop-up__open');
     popUpPlace.classList.remove('pop-up__open');
   }
 };
+

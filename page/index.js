@@ -1,18 +1,25 @@
+import { FormValidator } from "./formValidator.js";
+import { DefaultCard } from "./card.js";
+
 /* Variables Globales */
-const editButton = document.querySelector('.profile__content-edit-button');
-const popUpProfile = document.querySelector('#pop-up-profile');
-const closeButtonProfile = document.querySelector('#close-icon-profile');
-const formularyProfile = document.querySelector('#formulary-profile');
-const btnSave = document.querySelector('.formulary__save-button');
-const gallery = document.querySelector('#gallery');
-const popUpPlace = document.querySelector('#pop-up-place');
-const btnAdd = document.querySelector('#add-button-place');
-const btnClosePopUpPlace = document.querySelector("#close-icon-place");
-const formularyPlace = document.querySelector("#formulary-place");
-const templateZoom = document.querySelector("#template-zoom");
-const closeIconZoom = document.querySelector("#zoom-icon-zoom");
-const zoomImgSrc = document.querySelector("#zoom-img-src");
-const zoomTitle = document.querySelector("#zoom-img-title");
+export const editButton = document.querySelector('.profile__content-edit-button');
+export const popUpProfile = document.querySelector('#pop-up-profile');
+export const closeButtonProfile = document.querySelector('#close-icon-profile');
+export const formularyProfile = document.querySelector('#formulary-profile');
+export const btnSave = document.querySelector('.formulary__save-button');
+export const gallery = document.querySelector('#gallery');
+export const popUpPlace = document.querySelector('#pop-up-place');
+export const btnAdd = document.querySelector('#add-button-place');
+export const btnClosePopUpPlace = document.querySelector("#close-icon-place");
+export const formularyPlace = document.querySelector("#formulary-place");
+export const templateZoom = document.querySelector("#template-zoom");
+export const closeIconZoom = document.querySelector("#zoom-icon-zoom");
+export const zoomImgSrc = document.querySelector("#zoom-img-src");
+export const zoomTitle = document.querySelector("#zoom-img-title");
+
+
+
+
 /* Tarjetas Iniciales */
 
 const initialCards = [
@@ -41,3 +48,15 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
 ];
+
+initialCards.forEach((data)=>{
+  const card = new DefaultCard(data, ".card");
+  const cardElement = card.generateCard();
+
+  document.querySelector(".gallery").append(cardElement);
+})
+
+const formProfile = new FormValidator("formulary-profile");
+const formPlace = new FormValidator("formulary-place");
+formProfile.enableValidation();
+formPlace.enableValidation();

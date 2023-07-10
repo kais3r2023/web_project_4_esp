@@ -1,4 +1,4 @@
-
+import { templateZoom, zoomTitle, zoomImgSrc, formularyPlace } from "./index.js";
 
 class Card{
   
@@ -71,12 +71,7 @@ class Card{
 }
 
 
-initialCards.forEach((data)=>{
-  const card = new DefaultCard(data, ".card");
-  const cardElement = card.generateCard();
 
-  document.querySelector(".gallery").append(cardElement);
-})
 
 
 /* Tarjetas Nuevas */
@@ -89,11 +84,6 @@ class NewCard extends Card {
   }
 }
 
-const addNewCard = (()=>{
-  const card = new NewCard(".card");
-  const cardElement = card.generateCard();
-  document.querySelector(".gallery").append(cardElement);
-  handlerDisplayPopUpPlace()
-})
 
-formularyPlace.addEventListener('submit', addNewCard);
+
+export{DefaultCard, NewCard};
