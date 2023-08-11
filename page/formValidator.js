@@ -3,7 +3,27 @@ class FormValidator {
     this.element = document.getElementById(id);
   }
 
+  /*Metodo Público*/
+enableValidation(){
+  this.element.addEventListener("submit", function (event) {
+    event.preventDefault()
+})
+  this._setEventListeners();
+}
+
+
   /* Metodos Privados */
+
+  _setEventListeners(){
+    const self = this;
+    const inputList = Array.from(this.element.querySelectorAll(".formulary__data"));
+    inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", function () {
+        self._checkInputValidity(inputElement);
+      });
+    });
+  }
+
 _checkInputValidity (inputElement) {
   const errorElement = this.element.querySelector(`.${inputElement.id}-error`);
 
@@ -31,24 +51,6 @@ _checkInputValidity (inputElement) {
   buttonForm.disabled = !formIsValid;
 };
 
-_setEventListeners(){
-  const self = this;
-  const inputList = Array.from(this.element.querySelectorAll(".formulary__data"));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      self._checkInputValidity(inputElement);
-    });
-  });
 }
-
-/*Metodo Público*/
-enableValidation(){
-  this.element.addEventListener("submit", function (evt) {
-    evt.preventDefault()
-})
-  this._setEventListeners();
-}
-}
-
 
 export{FormValidator};

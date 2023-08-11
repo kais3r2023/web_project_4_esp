@@ -1,6 +1,6 @@
-import { templateZoom, zoomTitle, zoomImgSrc, formularyPlace } from "./index.js";
+import { templateZoom, zoomTitle, zoomImgSrc } from "../utils/constants.js";
 
-class Card{
+export class Card{
   
   constructor(template){
     this._template = template;
@@ -9,10 +9,9 @@ class Card{
   _getTemplate() {
       const cardElement = document.querySelector(this._template)
                           .content.querySelector(".gallery__card").cloneNode(true);
-
-      return cardElement;
+      return (cardElement);
     }
-
+    
     generateCard(){
       this._element = this._getTemplate();
       this._element.querySelector(".gallery__card_photo").src = this._link;
@@ -28,38 +27,39 @@ class Card{
       return this._element;
     }
 
-    deleteCard(){
+    /* deleteCard(){
       this._element.querySelector(".gallery__card_trash-can-icon").addEventListener("click", ()=>{
         this._element.remove();
       })
-    }
+    } */
 
-    zoomCardOn(){
+    /* zoomCardOn(){
       this._element.querySelector(".gallery__card_photo").addEventListener("click" , ()=>{ 
-      templateZoom.classList.add("template-zoom__open");
+      popupWithImage.open(this._link, this._name);
       })
-    }
+    } */
 
-    zoomCardOff(){
+    /* zoomCardOff(){
       templateZoom.querySelector(".template-zoom__close-icon").addEventListener("click" , ()=>{ 
         templateZoom.classList.remove("template-zoom__open");
         })
-    }
+    } */
 
-  zoomCard(){
+  /* zoomCard(){
     zoomImgSrc.src = this._link;
     zoomImgSrc.alt = this._name;
     zoomTitle.textContent = this._name;
     this.zoomCardOn();
-  }
+  } */
 
   handleBlackLike(){
     this._element.querySelector(".gallery__card_bar-like").addEventListener("click", ()=>{
       this._element.querySelector(".gallery__card_bar-like").classList.toggle("black-like");
     })
   }
+}
 
-  }
+/* Tarjetas Default */
 
   class DefaultCard extends Card{
   constructor(data, template) {
@@ -67,8 +67,9 @@ class Card{
     this._name = data.name;
     this._link = data.link;
 }
-
 }
+
+
 
 
 

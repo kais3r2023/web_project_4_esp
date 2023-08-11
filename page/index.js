@@ -12,10 +12,7 @@ export const popUpPlace = document.querySelector('#pop-up-place');
 export const btnAdd = document.querySelector('#add-button-place');
 export const btnClosePopUpPlace = document.querySelector("#close-icon-place");
 export const formularyPlace = document.querySelector("#formulary-place");
-export const templateZoom = document.querySelector("#template-zoom");
 export const closeIconZoom = document.querySelector("#zoom-icon-zoom");
-export const zoomImgSrc = document.querySelector("#zoom-img-src");
-export const zoomTitle = document.querySelector("#zoom-img-title");
 
 
 
@@ -52,7 +49,6 @@ const initialCards = [
 initialCards.forEach((data)=>{
   const card = new DefaultCard(data, ".card");
   const cardElement = card.generateCard();
-
   document.querySelector(".gallery").append(cardElement);
 })
 

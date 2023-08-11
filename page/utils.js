@@ -2,12 +2,12 @@ import { formularyPlace, editButton, popUpProfile,popUpPlace,formularyProfile,cl
 import { NewCard } from "./card.js";
 
 
-const addNewCard = (()=>{
+function addNewCard(){
   const card = new NewCard(".card");
   const cardElement = card.generateCard();
   document.querySelector(".gallery").append(cardElement);
   handlerDisplayPopUpPlace()
-})
+}
 formularyPlace.addEventListener('submit', addNewCard);
 
 /* funcion para cerrar editor de profile */
@@ -28,8 +28,8 @@ function handlerProfile (event) {
   const aboutMe = document.querySelector('#about-me').value;
   const name = document.querySelector('.profile__content-name');
   const about = document.querySelector('.profile__content-subtitle');
-  name.innerHTML= nameProfile;
-  about.innerHTML= aboutMe;
+  name.textContent= nameProfile;
+  about.textContent= aboutMe;
   handlerDisplayPopUpProfile();
   formularyProfile.reset();
 }
@@ -54,11 +54,10 @@ popUpPlace.classList.toggle('pop-up__open');
 
 btnAdd.addEventListener('click', handlerDisplayPopUpPlace);
 btnClosePopUpPlace.addEventListener('click', handlerDisplayPopUpPlace);
-document.onkeydown = function (Evt){
-  if (Evt.key === "Escape"){
+/* document.onkeydown = function (event){
+  if (event.key === "Escape"){
     templateZoom.classList.remove('template-zoom__open');
     popUpProfile.classList.remove('pop-up__open');
     popUpPlace.classList.remove('pop-up__open');
   }
-};
-
+}; */
