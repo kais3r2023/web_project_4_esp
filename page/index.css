@@ -28,11 +28,10 @@
 @import url(../blocks/pop-up/__container/formulary/__data/formulary__data.css);
 @import url(../blocks/pop-up/__container/formulary/__save-button/formulary__save-button.css);
 @import url(../blocks/pop-up/__container/formulary/__data-error/formulary__data-error.css);
-@import url(../blocks/pop-up/__open/pop-up__open.css);
 @import url(../blocks/template-zoom/template-zoom.css);
 @import url(../blocks/template-zoom/__image/template-zoom__image.css);
 @import url(../blocks/template-zoom/__title/template-zoom__title.css);
 @import url(../blocks/template-zoom/__container/template-zoom__container.css);
 @import url(../blocks/template-zoom/__close-icon/template-zoom__close-icon.css);
-@import url(../blocks/template-zoom/__open/template-zoom__open.css);
+@import url(../blocks/pop-up/__open/pop-up__open.css);
 @import url(../media-queries/media-queries.css);

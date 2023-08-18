@@ -1,9 +1,12 @@
-import { templateZoom, zoomTitle, zoomImgSrc, formularyPlace } from "./index.js";
+import { templateZoom } from "./cons.js";
+import {popupWithImage} from "./PopupWithImage.js";
 
 class Card{
   
-  constructor(template){
+  constructor(data, template){
     this._template = template;
+    this._link = data.link;
+    this._name = data.name;
   }
     
   _getTemplate() {
@@ -19,11 +22,11 @@ class Card{
       this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
       this._element.querySelector(".gallery__card_photo").alt = this._name;
       this._element.querySelector(".gallery__card_photo").addEventListener("click", ()=>{
-        this.zoomCard(this._link, this._name)})
+        this.zoomCardOn(this._name, this._link)})
       this.deleteCard();
       this.zoomCardOn();
       this.zoomCardOff();
-      this.zoomCard();
+      /* this.zoomCard(); */
       this.handleBlackLike();
       return this._element;
     }
@@ -36,22 +39,22 @@ class Card{
 
     zoomCardOn(){
       this._element.querySelector(".gallery__card_photo").addEventListener("click" , ()=>{ 
-      templateZoom.classList.add("template-zoom__open");
+      popupWithImage.open(this._name, this._link);
       })
     }
 
     zoomCardOff(){
       templateZoom.querySelector(".template-zoom__close-icon").addEventListener("click" , ()=>{ 
-        templateZoom.classList.remove("template-zoom__open");
+        templateZoom.classList.remove("pop-up__open");
         })
     }
 
-  zoomCard(){
+  /* zoomCard(){
     zoomImgSrc.src = this._link;
     zoomImgSrc.alt = this._name;
     zoomTitle.textContent = this._name;
     this.zoomCardOn();
-  }
+  } */
 
   handleBlackLike(){
     this._element.querySelector(".gallery__card_bar-like").addEventListener("click", ()=>{
@@ -66,6 +69,7 @@ class Card{
     super(template);
     this._name = data.name;
     this._link = data.link;
+    this._template = template;
 }
 
 }
@@ -86,4 +90,4 @@ class NewCard extends Card {
 
 
 
-export{DefaultCard, NewCard};
+export{Card, DefaultCard, NewCard};

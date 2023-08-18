@@ -1,7 +1,7 @@
 import { FormValidator } from "./formValidator.js";
-import { DefaultCard } from "./card.js";
+import { DefaultCard } from "./components/card.js";
 
-/* Variables Globales */
+// Variables Globales
 export const editButton = document.querySelector('.profile__content-edit-button');
 export const popUpProfile = document.querySelector('#pop-up-profile');
 export const closeButtonProfile = document.querySelector('#close-icon-profile');
@@ -12,7 +12,6 @@ export const popUpPlace = document.querySelector('#pop-up-place');
 export const btnAdd = document.querySelector('#add-button-place');
 export const btnClosePopUpPlace = document.querySelector("#close-icon-place");
 export const formularyPlace = document.querySelector("#formulary-place");
-export const templateZoom = document.querySelector("#template-zoom");
 export const closeIconZoom = document.querySelector("#zoom-icon-zoom");
 export const zoomImgSrc = document.querySelector("#zoom-img-src");
 export const zoomTitle = document.querySelector("#zoom-img-title");
@@ -20,7 +19,7 @@ export const zoomTitle = document.querySelector("#zoom-img-title");
 
 
 
-/* Tarjetas Iniciales */
+//Tarjetas Iniciales
 
 const initialCards = [
   {

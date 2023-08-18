@@ -1,5 +1,6 @@
-import { formularyPlace, editButton, popUpProfile,popUpPlace,formularyProfile,closeButtonProfile,btnAdd,btnClosePopUpPlace,templateZoom } from "./index.js";
-import { NewCard } from "./card.js";
+import { formularyPlace, editButton, popUpProfile,popUpPlace,formularyProfile,closeButtonProfile,btnAdd,btnClosePopUpPlace} from "./index.js";
+import { NewCard } from "./components/card.js";
+import { templateZoom } from "./components/cons.js";
 
 
 const addNewCard = (()=>{
@@ -56,7 +57,7 @@ btnAdd.addEventListener('click', handlerDisplayPopUpPlace);
 btnClosePopUpPlace.addEventListener('click', handlerDisplayPopUpPlace);
 document.onkeydown = function (Evt){
   if (Evt.key === "Escape"){
-    templateZoom.classList.remove('template-zoom__open');
+    templateZoom.classList.remove('pop-up__open');
     popUpProfile.classList.remove('pop-up__open');
     popUpPlace.classList.remove('pop-up__open');
   }
