@@ -26,5 +26,6 @@ export default class Popup{
     btnClosePopUpPlace.addEventListener("click", ()=>{
       this.close();
     });
+
   }
 }

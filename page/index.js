@@ -1,11 +1,12 @@
 import { FormValidator } from "./formValidator.js";
 import { DefaultCard } from "./components/card.js";
+import {PopupWithForm} from "./components/PopupWithForm.js";
+import { formularyProfile,forms } from "./components/cons.js";
 
 // Variables Globales
-export const editButton = document.querySelector('.profile__content-edit-button');
+export const editButtonProfile = document.querySelector('.profile__content-edit-button');
 export const popUpProfile = document.querySelector('#pop-up-profile');
 export const closeButtonProfile = document.querySelector('#close-icon-profile');
-export const formularyProfile = document.querySelector('#formulary-profile');
 export const btnSave = document.querySelector('.formulary__save-button');
 export const gallery = document.querySelector('#gallery');
 export const popUpPlace = document.querySelector('#pop-up-place');
@@ -15,6 +16,7 @@ export const formularyPlace = document.querySelector("#formulary-place");
 export const closeIconZoom = document.querySelector("#zoom-icon-zoom");
 export const zoomImgSrc = document.querySelector("#zoom-img-src");
 export const zoomTitle = document.querySelector("#zoom-img-title");
+
 
 
 
@@ -59,3 +61,18 @@ const formProfile = new FormValidator("formulary-profile");
 const formPlace = new FormValidator("formulary-place");
 formProfile.enableValidation();
 formPlace.enableValidation();
+
+/* Manipulacion de formulario Perfil */
+
+const openPopProfile = new PopupWithForm(popUpProfile)
+
+editButtonProfile.addEventListener("click" , ()=>{ 
+  openPopProfile.open()
+})
+
+formularyProfile.addEventListener("submit", (event)=>{
+  event.preventDefault();
+  openPopProfile._getInputValues();
+  
+})
+
