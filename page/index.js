@@ -1,7 +1,7 @@
 import { FormValidator } from "./formValidator.js";
 import { DefaultCard } from "./components/card.js";
 import {PopupWithForm} from "./components/PopupWithForm.js";
-import { formularyProfile,forms } from "./components/cons.js";
+import { formularyProfile } from "./components/cons.js";
 
 // Variables Globales
 export const editButtonProfile = document.querySelector('.profile__content-edit-button');
@@ -73,6 +73,7 @@ editButtonProfile.addEventListener("click" , ()=>{
 formularyProfile.addEventListener("submit", (event)=>{
   event.preventDefault();
   openPopProfile._getInputValues();
-  
+  openPopProfile._formAssignment(popUpProfile);
+  formularyProfile.reset();
 })
 
