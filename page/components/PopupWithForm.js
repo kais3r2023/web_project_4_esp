@@ -1,12 +1,14 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout} from "./cons.js";
+import { inputListValues, profileName, profileAbout, formularyProfile} from "./cons.js";
 import { popUpPlace, popUpProfile } from "../index.js";
 
 
 export default class PopupWithForm extends Popup{
   constructor(popupSelector){
     super(popupSelector)
+    this._popupSelector = popupSelector;
     this._form = popupSelector.querySelector(".formulary");
+    this._btnClose = this._form.querySelector(".btn-close");
   }
 
   _getInputValues(){
@@ -14,7 +16,6 @@ export default class PopupWithForm extends Popup{
     for(let i = 0; i<2 ; i++){
       inputListValues.push(this._inputList[i].value);
     };
-    super.close();
 
     }
   _resetInputListValues(){
@@ -22,12 +23,16 @@ export default class PopupWithForm extends Popup{
 
   }
 
-  _formAssignment(popupSelector){
-    if(popupSelector === popUpProfile){
+  _formAssignment(){
+    if(this._popupSelector === popUpProfile){
       this._addDomProfile();
+      super.close();
+
     }
-    else if(popupSelector === popUpPlace){
+    else if(this._popupSelector === popUpPlace){
       this._addDomGallery();
+      super.close();
+
     }
   }
   _addDomProfile(){
@@ -40,6 +45,18 @@ export default class PopupWithForm extends Popup{
   _addDomGallery(){
     
   }
-
+  setEventListeners(){
+      super.setEventListeners();
+      this._form.addEventListener("submit", (event)=>{
+      event.preventDefault();
+      this._getInputValues();
+      this._formAssignment();
+      this._form.reset();
+    })
+      super._handleEscClose();
+      this._btnClose.addEventListener("click", ()=>{
+        super.close();
+      })
+  }
 }
 export{PopupWithForm};

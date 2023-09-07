@@ -69,11 +69,13 @@ const openPopProfile = new PopupWithForm(popUpProfile)
 editButtonProfile.addEventListener("click" , ()=>{ 
   openPopProfile.open()
 })
+openPopProfile.setEventListeners();
 
-formularyProfile.addEventListener("submit", (event)=>{
+
+/* formularyProfile.addEventListener("submit", (event)=>{
   event.preventDefault();
   openPopProfile._getInputValues();
   openPopProfile._formAssignment(popUpProfile);
   formularyProfile.reset();
-})
+}) */
 

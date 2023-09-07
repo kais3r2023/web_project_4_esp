@@ -1,6 +1,5 @@
 import { formularyPlace,  popUpProfile,popUpPlace,closeButtonProfile,btnAdd,btnClosePopUpPlace} from "./index.js";
 import { NewCard } from "./components/card.js";
-import { templateZoom } from "./components/cons.js";
 
 
 const addNewCard = (()=>{
