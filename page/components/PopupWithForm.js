@@ -1,14 +1,15 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, formularyProfile} from "./cons.js";
-import { popUpPlace, popUpProfile } from "../index.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./cons.js";
+import { NewCard } from "./card.js";
 
 
 export default class PopupWithForm extends Popup{
   constructor(popupSelector){
     super(popupSelector)
     this._popupSelector = popupSelector;
-    this._form = popupSelector.querySelector(".formulary");
-    this._btnClose = this._form.querySelector(".btn-close");
+    this._form = this._popupSelector.querySelector(".formulary");
+    this._btnClose = this._popupSelector.querySelector(".btn-close");
+    
   }
 
   _getInputValues(){
@@ -32,19 +33,25 @@ export default class PopupWithForm extends Popup{
     else if(this._popupSelector === popUpPlace){
       this._addDomGallery();
       super.close();
-
+      
     }
   }
   _addDomProfile(){
     profileName.textContent = inputListValues[0];
     profileAbout.textContent = inputListValues[1];
     this._resetInputListValues();
-    console.log(inputListValues);
   }
 
   _addDomGallery(){
-    
+      const newData = {};
+      newData.name = inputListValues[0];
+      newData.link = inputListValues[1];
+      const addNewCard = new NewCard(newData, ".card");
+      const cardElement = addNewCard.generateCard();
+      gallery.append(cardElement);
+      this._resetInputListValues();
   }
+  
   setEventListeners(){
       super.setEventListeners();
       this._form.addEventListener("submit", (event)=>{
@@ -54,9 +61,9 @@ export default class PopupWithForm extends Popup{
       this._form.reset();
     })
       super._handleEscClose();
-      this._btnClose.addEventListener("click", ()=>{
-        super.close();
-      })
+      this._btnClose.addEventListener("click", () => {
+          super.close();
+        })
   }
 }
 export{PopupWithForm};

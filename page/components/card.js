@@ -1,4 +1,4 @@
-import { templateZoom } from "./cons.js";
+import { templateZoom, } from "./cons.js";
 import {popupWithImage} from "./PopupWithImage.js";
 
 class Card{
@@ -79,11 +79,12 @@ class Card{
 /* Tarjetas Nuevas */
 
 class NewCard extends Card {
-  constructor(template){
-  super(template);
-  this._name = document.querySelector("#place-title").value;
-  this._link = document.querySelector("#photo-link").value;
-  }
+  constructor(data, template) {
+    super(template);
+    this._name = data.name;
+    this._link = data.link;
+    this._template = template;
+}
 }
 
 

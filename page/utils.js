@@ -1,14 +1,19 @@
-import { formularyPlace,  popUpProfile,popUpPlace,closeButtonProfile,btnAdd,btnClosePopUpPlace} from "./index.js";
+import { formularyPlace} from "./components/cons.js";
 import { NewCard } from "./components/card.js";
 
 
-const addNewCard = (()=>{
+/* const addNewCard = (()=>{
   const card = new NewCard(".card");
   const cardElement = card.generateCard();
   document.querySelector(".gallery").append(cardElement);
   handlerDisplayPopUpPlace()
 })
-formularyPlace.addEventListener('submit', addNewCard);
+formularyPlace.addEventListener('submit', addNewCard); */
+
+
+
+
+
 
 /* funcion para cerrar editor de profile */
 /* function handlerDisplayPopUpProfile () {
