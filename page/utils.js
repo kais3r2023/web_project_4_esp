@@ -1,5 +1,5 @@
-import { formularyPlace} from "./components/cons.js";
-import { NewCard } from "./components/card.js";
+/* import { formularyPlace} from "./components/cons.js";
+import { NewCard } from "./components/card.js"; */
 
 
 /* const addNewCard = (()=>{

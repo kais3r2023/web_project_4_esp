@@ -23,8 +23,6 @@ class Card{
       this._element.querySelector(".gallery__card_photo").alt = this._name;
       this.deleteCard();
       this._setEventListener();
-      /* this.zoomCardOff(); */
-      /* this.zoomCard(); */
       this.handleBlackLike();
       return this._element;
     }
@@ -41,18 +39,6 @@ class Card{
       })
     }
 
-    /* zoomCardOff(){
-      templateZoom.querySelector(".template-zoom__close-icon").addEventListener("click" , ()=>{ 
-        templateZoom.classList.remove("pop-up__open");
-        })
-    } */
-
-  /* zoomCard(){
-    zoomImgSrc.src = this._link;
-    zoomImgSrc.alt = this._name;
-    zoomTitle.textContent = this._name;
-    this.zoomCardOn();
-  } */
 
   handleBlackLike(){
     this._element.querySelector(".gallery__card_bar-like").addEventListener("click", ()=>{

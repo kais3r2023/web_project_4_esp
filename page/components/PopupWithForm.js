@@ -1,6 +1,7 @@
 import Popup from "./PopUp.js";
 import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./cons.js";
 import { NewCard } from "./card.js";
+import UserInfo from "./UserInfo.js";
 
 
 export default class PopupWithForm extends Popup{
@@ -27,20 +28,23 @@ export default class PopupWithForm extends Popup{
   _formAssignment(){
     if(this._popupSelector === popUpProfile){
       this._addDomProfile();
-      super.close();
+      this.close();
 
     }
     else if(this._popupSelector === popUpPlace){
       this._addDomGallery();
-      super.close();
+      this.close();
       
     }
   }
   _addDomProfile(){
-    profileName.textContent = inputListValues[0];
-    profileAbout.textContent = inputListValues[1];
+    const userInformation = {};
+    userInformation.userName = inputListValues[0];
+    userInformation.userJob = inputListValues[1];
+    const addUserInfo = new UserInfo(userInformation);
+    addUserInfo.setUserInfo(profileName, profileAbout);
     this._resetInputListValues();
-  }
+    }
 
   _addDomGallery(){
       const newData = {};
@@ -58,12 +62,17 @@ export default class PopupWithForm extends Popup{
       event.preventDefault();
       this._getInputValues();
       this._formAssignment();
-      this._form.reset();
+      
     })
       super._handleEscClose();
       this._btnClose.addEventListener("click", () => {
-          super.close();
+          this.close();
         })
+  }
+
+  close(){
+    super.close();
+    this._form.reset();
   }
 }
 export{PopupWithForm};

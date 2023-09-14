@@ -57,14 +57,6 @@ editButtonProfile.addEventListener("click" , ()=>{
 openPopProfile.setEventListeners();
 
 
-/* formularyProfile.addEventListener("submit", (event)=>{
-  event.preventDefault();
-  openPopProfile._getInputValues();
-  openPopProfile._formAssignment(popUpProfile);
-  formularyProfile.reset();
-}) */
-
-
 
 /* Manipulacion de formulario Place */
 
