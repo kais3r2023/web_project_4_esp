@@ -1,10 +1,14 @@
+//import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery, submitButton } from "./cons.js";
+
 class FormValidator {
+  
   constructor(id) {
     this.element = document.getElementById(id);
   }
 
   /* Metodos Privados */
 _checkInputValidity (inputElement) {
+  console.log("validando form");
   const errorElement = this.element.querySelector(`.${inputElement.id}-error`);
 
   if (inputElement.validity.valid) {
@@ -43,10 +47,12 @@ _setEventListeners(){
 
 /*Metodo Público*/
 enableValidation(){
-  this.element.addEventListener("submit", function (evt) {
-    evt.preventDefault()
-})
+  const self = this;
   this._setEventListeners();
+  this.element.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+   // submitButton.disabled = true;
+})
 }
 }
 

@@ -1,5 +1,5 @@
-import { templateZoom, } from "./cons.js";
-import {popupWithImage} from "./PopupWithImage.js";
+
+import PopupWithImage from "./PopupWithImage.js";
 
 class Card{
   
@@ -12,7 +12,6 @@ class Card{
   _getTemplate() {
       const cardElement = document.querySelector(this._template)
                           .content.querySelector(".gallery__card").cloneNode(true);
-
       return cardElement;
     }
 
@@ -22,7 +21,7 @@ class Card{
       this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
       this._element.querySelector(".gallery__card_photo").alt = this._name;
       this.deleteCard();
-      this._setEventListener();
+      this.handleCardClick();
       this.handleBlackLike();
       return this._element;
     }
@@ -33,9 +32,14 @@ class Card{
       })
     }
 
-    _setEventListener(){
-      this._element.querySelector(".gallery__card_photo").addEventListener("click" , ()=>{ 
-      popupWithImage.open(this._name, this._link);
+    handleCardClick(){
+      this._element.querySelector(".gallery__card_photo").addEventListener("click" , ()=>{
+        const templateZoom = document.querySelector("#template-zoom");
+        const popupWithImage = new PopupWithImage(templateZoom);
+        const zoomImgSrc = ".template-zoom__image";
+        const zoomTitle = ".template-zoom__title";
+        popupWithImage.open(zoomImgSrc, zoomTitle, this._link, this._name);
+        popupWithImage.setEventListeners();
       })
     }
 
@@ -46,7 +50,7 @@ class Card{
     })
   }
 
-  }
+}
 
   class DefaultCard extends Card{
   constructor(data, template) {

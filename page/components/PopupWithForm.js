@@ -14,26 +14,22 @@ export default class PopupWithForm extends Popup{
   }
 
   _getInputValues(){
+    console.log("en _getInputValues");
     this._inputList = this._form.querySelectorAll(".formulary__data");
     for(let i = 0; i<2 ; i++){
       inputListValues.push(this._inputList[i].value);
     };
 
     }
-  _resetInputListValues(){
-    inputListValues.splice(0,2);
-
-  }
-
+  
   _formAssignment(){
+    console.log("en _formAssignment");
     if(this._popupSelector === popUpProfile){
       this._addDomProfile();
-      this.close();
 
     }
     else if(this._popupSelector === popUpPlace){
       this._addDomGallery();
-      this.close();
       
     }
   }
@@ -41,9 +37,11 @@ export default class PopupWithForm extends Popup{
     const userInformation = {};
     userInformation.userName = inputListValues[0];
     userInformation.userJob = inputListValues[1];
+    console.log(userInformation);
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
     this._resetInputListValues();
+
     }
 
   _addDomGallery(){
@@ -54,25 +52,32 @@ export default class PopupWithForm extends Popup{
       const cardElement = addNewCard.generateCard();
       gallery.append(cardElement);
       this._resetInputListValues();
+      
+  }
+
+  _resetInputListValues(){
+    inputListValues.splice(0,2);
+  }
+
+  close(){    
+    this._form.reset();
+    super.close();
   }
   
+
   setEventListeners(){
       super.setEventListeners();
+      super._handleEscClose();
+      this._btnClose.addEventListener("click", () => {
+        this.close();
+      })
       this._form.addEventListener("submit", (event)=>{
       event.preventDefault();
       this._getInputValues();
       this._formAssignment();
-      
-    })
-      super._handleEscClose();
-      this._btnClose.addEventListener("click", () => {
-          this.close();
-        })
-  }
-
-  close(){
-    super.close();
-    this._form.reset();
+      //this.close();
+      //event.currentTarget.setAttribute('disabled', true);
+      })
   }
 }
 export{PopupWithForm};

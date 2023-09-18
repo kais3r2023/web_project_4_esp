@@ -1,6 +1,4 @@
 // Variables Globales
-
-export const templateZoom = document.querySelector("#template-zoom");
 export const inputListValues = [];
 export const profileName = document.querySelector('.profile__content-name');
 export const profileAbout = document.querySelector('.profile__content-subtitle');
@@ -14,3 +12,4 @@ export const gallery = document.querySelector('#gallery');
 export const formularyPlace = document.querySelector("#formulary-place");
 export const zoomImgSrc = document.querySelector("#zoom-img-src");
 export const zoomTitle = document.querySelector("#zoom-img-title");
+export const submitButton = document.querySelector("#zoom-img-src");

@@ -1,7 +1,7 @@
 export default class Popup{
   constructor(popupSelector){
     this._popupSelector = popupSelector;
-    this.form = popupSelector.querySelector(".formulary");
+    this.form = popupSelector.querySelector(".formulary");  
   }
   open(){
     this._popupSelector.classList.add("pop-up__open")
@@ -9,7 +9,7 @@ export default class Popup{
   }
 
   close(){
-    this._popupSelector.classList.remove("pop-up__open")
+    this._popupSelector.classList.remove("pop-up__open");
   }
 
   _handleEscClose(){
@@ -22,8 +22,8 @@ export default class Popup{
 }
 
   setEventListeners(){
-    const btnClosePopUpPlace = this._popupSelector.querySelector(".btn-close");
-    btnClosePopUpPlace.addEventListener("click", ()=>{
+    const btnClosePopUp = this._popupSelector.querySelector(".btn-close");
+    btnClosePopUp.addEventListener("click", ()=>{
       this.close();
     });
 
