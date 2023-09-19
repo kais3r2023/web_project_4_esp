@@ -14,3 +14,5 @@ export const gallery = document.querySelector('#gallery');
 export const formularyPlace = document.querySelector("#formulary-place");
 export const zoomImgSrc = document.querySelector("#zoom-img-src");
 export const zoomTitle = document.querySelector("#zoom-img-title");
+export const btnSubProfile = document.querySelector("#btn-submit-profile");
+export const btnSubPLace = document.querySelector("#btn-place-save");

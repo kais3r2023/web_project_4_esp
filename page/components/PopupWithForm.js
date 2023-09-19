@@ -1,5 +1,5 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./cons.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery, btnSubProfile } from "./cons.js";
 import { NewCard } from "./card.js";
 import UserInfo from "./UserInfo.js";
 
@@ -10,13 +10,14 @@ export default class PopupWithForm extends Popup{
     this._popupSelector = popupSelector;
     this._form = this._popupSelector.querySelector(".formulary");
     this._btnClose = this._popupSelector.querySelector(".btn-close");
+    this._btnSutmit = this._popupSelector.querySelector(".formulary__save-button");
     
   }
 
   _getInputValues(){
     this._inputList = this._form.querySelectorAll(".formulary__data");
     for(let i = 0; i<2 ; i++){
-      inputListValues.push(this._inputList[i].value);
+      inputListValues[i]= this._inputList[i].value;
     };
 
     }
@@ -28,12 +29,12 @@ export default class PopupWithForm extends Popup{
   _formAssignment(){
     if(this._popupSelector === popUpProfile){
       this._addDomProfile();
-      this.close();
+      /* this.close(); */
 
     }
     else if(this._popupSelector === popUpPlace){
       this._addDomGallery();
-      this.close();
+      /* this.close(); */
       
     }
   }
@@ -43,7 +44,7 @@ export default class PopupWithForm extends Popup{
     userInformation.userJob = inputListValues[1];
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
-    this._resetInputListValues();
+    /* this._resetInputListValues(); */
     }
 
   _addDomGallery(){
@@ -53,21 +54,29 @@ export default class PopupWithForm extends Popup{
       const addNewCard = new NewCard(newData, ".card");
       const cardElement = addNewCard.generateCard();
       gallery.append(cardElement);
-      this._resetInputListValues();
+      /* this._resetInputListValues(); */
   }
   
+  /* onclick del boton al formulario submit */
   setEventListeners(){
+    this._btnSutmit.disabled = false;
       super.setEventListeners();
+      super._handleEscClose();
+      /*this._btnSutmit.addEventListener("click", (event)=>{
+        event.preventDefault();
+        this._getInputValues();
+        this._formAssignment();
+        this.close();
+        this._resetInputListValues();
+        this._btnSutmit.disabled = true;
+      })*/
+
       this._form.addEventListener("submit", (event)=>{
       event.preventDefault();
       this._getInputValues();
       this._formAssignment();
-      
+      this.close();
     })
-      super._handleEscClose();
-      this._btnClose.addEventListener("click", () => {
-          this.close();
-        })
   }
 
   close(){

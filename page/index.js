@@ -52,9 +52,10 @@ formPlace.enableValidation();
 const openPopProfile = new PopupWithForm(popUpProfile)
 
 editButtonProfile.addEventListener("click" , ()=>{ 
-  openPopProfile.open()
+  openPopProfile.open();
+  openPopProfile.setEventListeners();
 })
-openPopProfile.setEventListeners();
+
 
 
 
@@ -62,7 +63,7 @@ openPopProfile.setEventListeners();
 
 const openPopPLace = new PopupWithForm(popUpPlace)
   btnAddPlace.addEventListener("click", ()=>{
-    openPopPLace.open()
+    openPopPLace.open();
   })
     openPopPLace.setEventListeners();
     

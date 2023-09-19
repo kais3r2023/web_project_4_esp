@@ -1,21 +1,33 @@
 import Popup from "./PopUp.js";
-import { templateZoom } from "./cons.js";
 
 export default class PopupWithImage extends Popup{
-  constructor(templateZoom){
-    super(templateZoom);
-  }
+  constructor(popupSelector){
+      super(popupSelector);
+      this._popupSelector = popupSelector;
+      this._btnClose = this._popupSelector.querySelector(".btn-close");
+    }
 
-  open (name, link){
+  open(imgSelector, titleSelector, imgLink, imgName){
     super.open();
-    const imagePopUpElement = document.querySelector(".template-zoom__image");
-    const imagePopupTitleElement = document.querySelector(".template-zoom__title");
-
-    imagePopUpElement.src = link;
-    imagePopUpElement.alt = `Imagen de ${name}`;
-    imagePopupTitleElement.textContent = name;
+    const imagePopUpElement = this._popupSelector.querySelector(imgSelector);
+    const imagePopupTitleElement = this._popupSelector.querySelector(titleSelector);
+    imagePopUpElement.src = imgLink;
+    imagePopUpElement.alt = `Imagen de ${imgName}`;
+    imagePopupTitleElement.textContent = imgName;
   }
-}
 
-export const popupWithImage = new PopupWithImage(templateZoom);
-popupWithImage.setEventListeners();
+  close(){
+    super.close();
+  }
+
+  setEventListeners(){
+    super.setEventListeners();
+    super._handleEscClose();
+    this._btnClose.addEventListener("click", () => {
+          this.close();
+        })
+  }
+
+};
+
+export {PopupWithImage};
