@@ -10,8 +10,6 @@ export default class PopupWithForm extends Popup{
     this._popupSelector = popupSelector;
     this._form = this._popupSelector.querySelector(".formulary");
     this._btnClose = this._popupSelector.querySelector(".btn-close");
-    this._btnSutmit = this._popupSelector.querySelector(".formulary__save-button");
-    
   }
 
   _getInputValues(){
@@ -29,12 +27,12 @@ export default class PopupWithForm extends Popup{
   _formAssignment(){
     if(this._popupSelector === popUpProfile){
       this._addDomProfile();
-      /* this.close(); */
+      
 
     }
     else if(this._popupSelector === popUpPlace){
       this._addDomGallery();
-      /* this.close(); */
+      
       
     }
   }
@@ -44,7 +42,7 @@ export default class PopupWithForm extends Popup{
     userInformation.userJob = inputListValues[1];
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
-    /* this._resetInputListValues(); */
+    
     }
 
   _addDomGallery(){
@@ -54,29 +52,20 @@ export default class PopupWithForm extends Popup{
       const addNewCard = new NewCard(newData, ".card");
       const cardElement = addNewCard.generateCard();
       gallery.append(cardElement);
-      /* this._resetInputListValues(); */
+      
   }
   
   /* onclick del boton al formulario submit */
   setEventListeners(){
-    this._btnSutmit.disabled = false;
       super.setEventListeners();
       super._handleEscClose();
-      /*this._btnSutmit.addEventListener("click", (event)=>{
-        event.preventDefault();
-        this._getInputValues();
-        this._formAssignment();
-        this.close();
-        this._resetInputListValues();
-        this._btnSutmit.disabled = true;
-      })*/
+      
+  }
 
-      this._form.addEventListener("submit", (event)=>{
-      event.preventDefault();
-      this._getInputValues();
+  setSubmitListeners(){
+    this._getInputValues();
       this._formAssignment();
       this.close();
-    })
   }
 
   close(){
