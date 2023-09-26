@@ -1,5 +1,9 @@
-
 import PopupWithImage from "./PopupWithImage.js";
+import trashIcon from "/src/images/Trash-Can.png";
+import likeIcon from "/src/images/like.png";
+
+//Carga de Imagenes
+
 
 class Card{
   
@@ -7,6 +11,7 @@ class Card{
     this._template = template;
     this._link = data.link;
     this._name = data.name;
+    
   }
     
   _getTemplate() {
@@ -17,6 +22,11 @@ class Card{
 
     generateCard(){
       this._element = this._getTemplate();
+      // import images
+      this._element.querySelector(".gallery__card_trash-can-icon").src = trashIcon;
+      this._element.querySelector(".gallery__card_bar-like").src = likeIcon;
+
+      //set link and name
       this._element.querySelector(".gallery__card_photo").src = this._link;
       this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
       this._element.querySelector(".gallery__card_photo").alt = this._name;

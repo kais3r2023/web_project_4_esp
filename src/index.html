@@ -9,18 +9,18 @@
 <body>
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo.png" alt="logo header">
+      <img class="header__logo" id="logo-header" alt="logo header">
       <hr class="header__line">
     </header>
   <section>
       <div class="profile">
-      <img class="profile__avatar" src="./images/Avatar.png" alt="Avatar Photo">
+      <img class="profile__avatar" id="profileAvatar" alt="Avatar Photo">
       <div class="profile__content">
         <h1 class="profile__content-name">Jacques Cousteau</h1>
-        <button class="profile__content-edit-button"><img src="./images/Edit Button.png" alt="Button Edit"></button>
+        <button class="profile__content-edit-button"><img id="btnEdit" alt="Button Edit"></button>
         <h3 class="profile__content-subtitle">Explorador</h3>
       </div>
-      <button class="add-button-place" id="add-button-place"><img class="profile__add-button" src="./images/Add Button.png" alt="Add Button"></button>
+      <button class="add-button-place" id="add-button-place"><img class="profile__add-button" id="btnAddPlace" alt="Add Button"></button>
       </div>
   </section>
   <section class="gallery" id="gallery">
@@ -31,12 +31,12 @@
   </div>
   <div class="pop-up" id="pop-up-profile">
     <div class="pop-up__container">
-      <img class="pop-up__close-icon btn-close" id="close-icon-profile" src="./images/Close Icon.png" alt="icono de cerrar profile">
+      <img class="pop-up__close-icon btn-close" id="close-icon-profile" alt="icono de cerrar profile">
       <form class="formulary" id="formulary-profile" novalidate>
         <h2 class="formulary__title">Edit profile</h2>
-        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="40" value="Jacques Cousteau" required >
+        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="20" value="Jacques Cousteau" required >
         <span class = "name-profile-error "></span>
-        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="200" value="Explorador" required >
+        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="21" value="Explorador" required >
         <span class = "about-me-error "></span>
         <button type="submit" class="formulary__save-button" id="btn-submit-profile" disabled >Guardar
         </button>
@@ -45,7 +45,7 @@
   </div>
   <div class="pop-up" id="pop-up-place">
     <div class="pop-up__container">
-      <img class="pop-up__close-icon btn-close" id="close-icon-place" src="./images/Close Icon.png" alt="icono de cerrar place">
+      <img class="pop-up__close-icon btn-close" id="close-icon-place" alt="icono de cerrar place">
       <form class="formulary" id="formulary-place" novalidate>
         <h2 class="formulary__title">Nuevo lugar</h2>
         <input class="formulary__data" id="place-title" type="text" minlength="2" maxlength="30" placeholder="Título" required >
@@ -66,15 +66,12 @@
 </div>
 <template class="card">
   <div class="gallery__card">
-    <img class="gallery__card_trash-can-icon" src="./images/Trash-Can.png" alt="Tachito de Basura">
-    <img class="gallery__card_photo" src="" alt="">
-    <div class="gallery__card_bar"><h3 class="gallery__card_bar-title"></h3><img class="gallery__card_bar-like" src="./images/like.png" alt="Corazon Like">
+    <img class="gallery__card_trash-can-icon" id="trash-can-img" alt="Tachito de Basura">
+    <img class="gallery__card_photo">
+    <div class="gallery__card_bar"><h3 class="gallery__card_bar-title"></h3><img class="gallery__card_bar-like" alt="Corazon Like">
     </div>
   </div>
 </template>
-<script src="./page/index.js" type="module"></script>
-<script src="./page/utils.js" type="module"></script>
-<script src="./page/formValidator.js" type="module"></script>
-<script src="./page/components/card.js" type="module"></script>
+<script type="module" src></script>
 </body>
 </html>

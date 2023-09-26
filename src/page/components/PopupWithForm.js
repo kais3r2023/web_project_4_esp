@@ -1,5 +1,5 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery, btnSubProfile } from "./cons.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./cons.js";
 import { NewCard } from "./card.js";
 import UserInfo from "./UserInfo.js";
 
@@ -19,10 +19,7 @@ export default class PopupWithForm extends Popup{
     };
 
     }
-  _resetInputListValues(){
-    inputListValues.splice(0,2);
-
-  }
+  
 
   _formAssignment(){
     if(this._popupSelector === popUpProfile){
@@ -55,7 +52,6 @@ export default class PopupWithForm extends Popup{
       
   }
   
-  /* onclick del boton al formulario submit */
   setEventListeners(){
       super.setEventListeners();
       super._handleEscClose();
