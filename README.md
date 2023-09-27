@@ -8,6 +8,8 @@
 * Funciones callbacks JavaScript
 * Creacion de botones que llaman Pop Ups con JavaScript
 * Utilizacion de formularios con Javascript
+* Usa webpack
+* creacion de clases y relacion entre clases
 **Figma**
 
 * [Enlace al proyecto en Figma](https://www.figma.com/file/i6HpqEzmTcK6wgBE7Dn4aZ/Web_Brief_Sprint_5_ES-%7C-Alrededor-de-los-EEUU-%7C-desktop-%2B-mobile?node-id=0-1&t=DmGznbfttnw5ZvQa-0)
