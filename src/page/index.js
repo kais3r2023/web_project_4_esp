@@ -3,10 +3,10 @@ import editBtn from "../images/Edit Button.png";
 import avatarPhoto from "../images/Avatar.png";
 import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
-import { FormValidator } from "./formValidator.js";
-import {PopupWithForm} from "./components/PopupWithForm.js";
-import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card} from "./components/cons.js";
-import {Section} from "./components/section.js";
+import { FormValidator } from "../js/formValidator.js";
+import {PopupWithForm} from "../js/components/PopupWithForm.js";
+import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card} from "../js/components/cons.js";
+import {Section} from "../js/components/section.js";
 
 //Carga de Imagenes
 //Img Edit Profile

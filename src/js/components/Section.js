@@ -1,5 +1,5 @@
-import { DefaultCard } from "./card.js";
-import { gallery } from "./cons.js";
+import { DefaultCard } from "./Card.js";
+import { gallery } from "./Cons.js";
 
 export default class Section{
   constructor(items, cardSelector){

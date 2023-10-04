@@ -34,4 +34,4 @@
 @import url(/src/blocks/template-zoom/__container/template-zoom__container.css);
 @import url(/src/blocks/template-zoom/__close-icon/template-zoom__close-icon.css);
 @import url(/src/blocks/pop-up/__open/pop-up__open.css);
-@import url(../media-queries/media-queries.css);
+@import url(../blocks/media-queries/media-queries.css);
