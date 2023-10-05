@@ -5,8 +5,8 @@ import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
 import { FormValidator } from "../js/formValidator.js";
 import {PopupWithForm} from "../js/components/PopupWithForm.js";
-import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card} from "../js/components/cons.js";
-import {Section} from "../js/components/section.js";
+import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card} from "../js/components/Cons.js";
+import {Section} from "../js/components/Section.js";
 
 //Carga de Imagenes
 //Img Edit Profile

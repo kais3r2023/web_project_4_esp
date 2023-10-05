@@ -1,6 +1,6 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./cons.js";
-import { NewCard } from "./card.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./Cons.js";
+import { NewCard } from "./Card.js";
 import UserInfo from "./UserInfo.js";
 
 
