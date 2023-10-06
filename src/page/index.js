@@ -3,7 +3,7 @@ import editBtn from "../images/Edit Button.png";
 import avatarPhoto from "../images/Avatar.png";
 import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
-import { FormValidator } from "../js/formValidator.js";
+import { FormValidator } from "../js/components/FormValidator.js";
 import {PopupWithForm} from "../js/components/PopupWithForm.js";
 import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card} from "../js/components/Cons.js";
 import {Section} from "../js/components/Section.js";
