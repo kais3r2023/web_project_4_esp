@@ -24,12 +24,21 @@ export default class Popup{
   };
 }
 
+
+_handleClickOut(){
+  this._popupSelector.addEventListener("click", (evt) => {
+    if (evt.target.id === this._popupSelector.id){
+      this.close();
+    }
+  })
+}
+
   setEventListeners(){
     const btnClosePopUp = this._popupSelector.querySelector(".btn-close");
     btnClosePopUp.src = btnCloseImg;
     btnClosePopUp.addEventListener("click", ()=>{
       this.close();
     });
-
+    this._handleClickOut();
   }
 }

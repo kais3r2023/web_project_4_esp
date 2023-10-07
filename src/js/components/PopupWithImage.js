@@ -1,4 +1,5 @@
 import Popup from "./PopUp.js";
+import { templateZoom } from "./Cons.js";
 
 export default class PopupWithImage extends Popup{
   constructor(popupSelector){
@@ -20,14 +21,15 @@ export default class PopupWithImage extends Popup{
     super.close();
   }
 
+  
+
   setEventListeners(){
     super.setEventListeners();
     super._handleEscClose();
     this._btnClose.addEventListener("click", () => {
           this.close();
-        })
+  })
+    
   }
-
 };
-
 export {PopupWithImage};
