@@ -17,7 +17,6 @@ export default class PopupWithForm extends Popup{
     for(let i = 0; i<2 ; i++){
       inputListValues[i]= this._inputList[i].value;
     };
-
     }
   
 

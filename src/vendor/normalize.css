@@ -367,7 +367,7 @@ textarea {
  * 2. Cambia las propiedades de fuente para `inherit` en Safari.
  */
 
- ::-webkit-file-upload-button {
+::-webkit-file-upload-button {
     -webkit-appearance: button;
     /* 1 */
     font: inherit;
