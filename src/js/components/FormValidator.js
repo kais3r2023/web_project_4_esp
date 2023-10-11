@@ -43,6 +43,10 @@ _setEventListeners(){
 
 /*Metodo Público*/
 enableValidation(){
+  const buttonForm = this.element.querySelector("#btn-place-save");
+  if(buttonForm){
+    buttonForm.disabled= true;
+  }
   this.element.addEventListener("submit", function (evt) {
     evt.preventDefault()
 })

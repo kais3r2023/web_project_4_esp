@@ -53,6 +53,7 @@ const openPopPlace = new PopupWithForm(popUpPlace)
 btnAddPlace.addEventListener("click" , ()=>{ 
   openPopPlace.open();
   openPopPlace.setEventListeners();
+  formPlace.enableValidation();
 })
 
 openPopPlace._form.addEventListener("submit", (event)=>{
