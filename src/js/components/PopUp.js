@@ -1,4 +1,3 @@
-import btnCloseImg from "/src/images/Close Icon.png";
 
 export default class Popup{
   constructor(popupSelector){
@@ -35,7 +34,6 @@ _handleClickOut(){
 
   setEventListeners(){
     const btnClosePopUp = this._popupSelector.querySelector(".btn-close");
-    btnClosePopUp.src = btnCloseImg;
     btnClosePopUp.addEventListener("click", ()=>{
       this.close();
     });

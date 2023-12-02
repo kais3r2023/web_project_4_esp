@@ -5,8 +5,9 @@ import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
 import { FormValidator } from "../js/components/FormValidator.js";
 import {PopupWithForm} from "../js/components/PopupWithForm.js";
-import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card} from "../js/components/Cons.js";
+import { popUpProfile, editButtonProfile, popUpPlace, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation} from "../js/components/Cons.js";
 import {Section} from "../js/components/Section.js";
+import btnCloseImg from "/src/images/Close Icon.png";
 
 //Carga de Imagenes
 //Img Edit Profile
@@ -21,6 +22,12 @@ addPlaceBtn.src = btnAddImg;
 //Img Logo Header
 const logoHeader = document.getElementById("logo-header");
 logoHeader.src = logoImg;
+//Img logo Iconos Equis Cerrar
+btnCloseProfile.src = btnCloseImg;
+btnClosePlace.src = btnCloseImg;
+btnCloseZoom.src = btnCloseImg;
+btnCloseConfirmation.src = btnCloseImg;
+
 
 //Tarjetas Iniciales
 

@@ -1,6 +1,8 @@
 import PopupWithImage from "./PopupWithImage.js";
 import trashIcon from "/src/images/Trash-Can.png";
 import likeIcon from "/src/images/like.png";
+import { popUpConfirmation } from "./Cons.js";
+import Popup from "./PopUp.js";
 
 //Carga de Imagenes
 
@@ -38,7 +40,13 @@ class Card{
 
     deleteCard(){
       this._element.querySelector(".gallery__card_trash-can-icon").addEventListener("click", ()=>{
-        this._element.remove();
+        const popUpConfirmationCard = new Popup(popUpConfirmation);
+        popUpConfirmationCard.setEventListeners();
+        popUpConfirmationCard.open();
+        popUpConfirmation.querySelector("#btn-confirmation").addEventListener("click",()=>{
+          this._element.remove();
+          popUpConfirmationCard.close();
+        })
       })
     }
 
