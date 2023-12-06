@@ -3,4 +3,5 @@
     grid-template-columns: auto minmax(415px, auto) auto;
     align-items: center;
     text-align: left;
+    position: relative;
 }

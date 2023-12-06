@@ -13,6 +13,7 @@
     </header>
   <section>
       <div class="profile">
+      <div class="profile__avatar-overlay" id="btnUpdateProfileIcon"></div>
       <img class="profile__avatar" id="profileAvatar" alt="Avatar Photo">
       <div class="profile__content">
         <h1 class="profile__content-name">Jacques Cousteau</h1>
@@ -49,7 +50,7 @@
         <input class="formulary__data" id="place-title" type="text" minlength="2" maxlength="30" placeholder="Título" required >
         <span class = "place-title-error "></span>
         <input class="formulary__data" id="photo-link" type="url" placeholder="Enlace a la imagen" required >
-        <span class = "photo-link-error "></span>
+        <span class = "photo-link-error"></span>
         <button type="submit" class="formulary__save-button" id="btn-place-save">Crear</button>
       </form>
     </div>
@@ -66,6 +67,17 @@
     <h2 class="formulary__title">¿Estás seguro?</h2>
     <button type="button" class="formulary__save-button" id="btn-confirmation">Si</button>
     <img class="pop-up__close-icon btn-close" id="close-icon-confirmation" alt="icono de cerrar confirmation">
+  </div>
+</div>
+<div class="pop-up" id="pop-up-update-avatar-icon">
+  <div class="pop-up__container">
+    <img class="pop-up__close-icon btn-close" id="close-icon-update-avatar-icon" alt="icono de cerrar update avatar icon">
+    <form class="formulary" id="formulary-update-avatar-icon" novalidate>
+      <h2 class="formulary__title">Cambiar foto de perfil</h2>
+      <input class="formulary__data" id="photo-avatar" type="url" placeholder="Enlace a la imagen" required >
+      <span class = "photo-avatar-error"></span>
+      <button type="submit" class="formulary__save-button" id="btn-update-save">Guardar</button>
+    </form>
   </div>
 </div>
 <template class="card">

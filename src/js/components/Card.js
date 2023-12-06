@@ -4,7 +4,6 @@ import likeIcon from "/src/images/like.png";
 import { popUpConfirmation } from "./Cons.js";
 import Popup from "./PopUp.js";
 
-//Carga de Imagenes
 
 
 class Card{
