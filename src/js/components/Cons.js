@@ -48,5 +48,5 @@ export const btnCloseUpdateProfileIcon = document.getElementById("close-icon-upd
 export const popUpPlace = document.querySelector('#pop-up-place');
 export const popUpProfile = document.querySelector('#pop-up-profile');
 export const popUpConfirmation = document.querySelector("#pop-up-confirmation");
-export const popUpUpdateIcon = document.querySelector("#pop-up-update-avatar-icon");
+export const popUpUpdateProfileIcon = document.querySelector("#pop-up-update-avatar-icon");
 export const btnUpdateProfileIcon = document.querySelector("#btnUpdateProfileIcon");

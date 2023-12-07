@@ -1,7 +1,8 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, gallery } from "./Cons.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery } from "./Cons.js";
 import { NewCard } from "./Card.js";
 import UserInfo from "./UserInfo.js";
+import { avatarImg } from "../../page/index.js";
 
 
 export default class PopupWithForm extends Popup{
@@ -9,14 +10,18 @@ export default class PopupWithForm extends Popup{
     super(popupSelector)
     this._popupSelector = popupSelector;
     this._form = this._popupSelector.querySelector(".formulary");
-    this._btnClose = this._popupSelector.querySelector(".btn-close");
+    this._inputList = this._form.querySelectorAll(".formulary__data");
+    /* this._btnClose = this._popupSelector.querySelector(".btn-close"); */
   }
 
   _getInputValues(){
-    this._inputList = this._form.querySelectorAll(".formulary__data");
-    for(let i = 0; i<2 ; i++){
+    /*for(let i = 0; i<2 ; i++){
       inputListValues[i]= this._inputList[i].value;
-    };
+    };*/
+    this._inputList.forEach((input) =>{
+      inputListValues[input.name] = input.value;
+    });
+      return(inputListValues);
     }
   
 
@@ -31,11 +36,17 @@ export default class PopupWithForm extends Popup{
       
       
     }
+    else if(this._popupSelector === popUpUpdateProfileIcon){
+      this._addDomProfileAvatar();
+    }
+    else{
+      console.log("no encuentro un formulario valido");
+    }
   }
   _addDomProfile(){
     const userInformation = {};
-    userInformation.userName = inputListValues[0];
-    userInformation.userJob = inputListValues[1];
+    userInformation.userName = inputListValues.name;
+    userInformation.userJob = inputListValues.about;
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
     
@@ -43,12 +54,18 @@ export default class PopupWithForm extends Popup{
 
   _addDomGallery(){
       const newData = {};
-      newData.name = inputListValues[0];
-      newData.link = inputListValues[1];
+      newData.name = inputListValues.name;
+      newData.link = inputListValues.link;
       const addNewCard = new NewCard(newData, ".card");
       const cardElement = addNewCard.generateCard();
       gallery.append(cardElement);
       
+  }
+
+  _addDomProfileAvatar(){
+    const newAvatar = {};
+    newAvatar.link = inputListValues.link;
+    avatarImg.src = newAvatar.link;
   }
   
   setEventListeners(){
@@ -59,8 +76,8 @@ export default class PopupWithForm extends Popup{
 
   setSubmitListeners(){
     this._getInputValues();
-      this._formAssignment();
-      this.close();
+    this._formAssignment();
+    this.close();
   }
 
   close(){

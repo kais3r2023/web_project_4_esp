@@ -5,7 +5,7 @@ import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
 import { FormValidator } from "../js/components/FormValidator.js";
 import {PopupWithForm} from "../js/components/PopupWithForm.js";
-import { popUpProfile, popUpPlace, popUpUpdateIcon, editButtonProfile, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon} from "../js/components/Cons.js";
+import { popUpProfile, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon} from "../js/components/Cons.js";
 import {Section} from "../js/components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
 
@@ -14,7 +14,7 @@ import btnCloseImg from "/src/images/Close Icon.png";
 const editBtnImg = document.getElementById("btnEdit"); 
 editBtnImg.src = editBtn;
 //Img Avatar
-const avatarImg = document.getElementById("profileAvatar");
+export const avatarImg = document.getElementById("profileAvatar");
 avatarImg.src = avatarPhoto;
 //Img Add Btn
 const addPlaceBtn = document.getElementById("btnAddPlace");
@@ -76,7 +76,7 @@ openPopPlace._form.addEventListener("submit", (event)=>{
 
 /* Manipulación de formulario Update Profile Icon */
 
-const openPopUpdateIcon = new PopupWithForm(popUpUpdateIcon)
+const openPopUpdateIcon = new PopupWithForm(popUpUpdateProfileIcon)
 btnUpdateProfileIcon.addEventListener("click", ()=>{
   openPopUpdateIcon.open();
   openPopUpdateIcon.setEventListeners();
