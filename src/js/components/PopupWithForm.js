@@ -1,5 +1,5 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery } from "./Cons.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api } from "./Cons.js";
 import { NewCard } from "./Card.js";
 import UserInfo from "./UserInfo.js";
 import { avatarImg } from "../../page/index.js";
@@ -21,6 +21,7 @@ export default class PopupWithForm extends Popup{
     this._inputList.forEach((input) =>{
       inputListValues[input.name] = input.value;
     });
+      console.log(inputListValues);
       return(inputListValues);
     }
   
@@ -46,10 +47,11 @@ export default class PopupWithForm extends Popup{
   _addDomProfile(){
     const userInformation = {};
     userInformation.userName = inputListValues.name;
-    userInformation.userJob = inputListValues.about;
+    userInformation.userAbout = inputListValues.about;
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
-    
+    api.updateProfile({name: userInformation.userName, about: userInformation.userAbout});
+    console.log(userInformation);
     }
 
   _addDomGallery(){
@@ -82,6 +84,9 @@ export default class PopupWithForm extends Popup{
 
   close(){
     super.close();
+    this._inputList.forEach((input)=>{
+      input.value = "";
+    })
     this._form.reset();
   }
 }

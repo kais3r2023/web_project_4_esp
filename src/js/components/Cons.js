@@ -1,3 +1,5 @@
+import { Api } from "./Api";
+
 // Variables Globales
 export const initialCards = [
   {
@@ -25,6 +27,15 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
 ];
+
+export const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web_es_07",
+  headers: {
+    authorization : "b0317f83-ed7a-474d-ada0-9509ec577796",
+    "Content-Type": "application/json"
+  }
+});
+
 export const card = ".card";
 export const templateZoom = document.querySelector("#template-zoom");
 export const inputListValues = [];

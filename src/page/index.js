@@ -3,13 +3,19 @@ import editBtn from "../images/Edit Button.png";
 import avatarPhoto from "../images/Avatar.png";
 import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
+import tripletenImg from "../images/tripletenIcon.png";
 import { FormValidator } from "../js/components/FormValidator.js";
 import {PopupWithForm} from "../js/components/PopupWithForm.js";
 import { popUpProfile, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon} from "../js/components/Cons.js";
 import {Section} from "../js/components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
+import { api } from "../js/components/Cons.js";
+
 
 //Carga de Imagenes
+//Img Tripleten Icon
+const tripletenIcon = document.getElementById("tripletenIcon");
+tripletenIcon.href = tripletenImg
 //Img Edit Profile
 const editBtnImg = document.getElementById("btnEdit"); 
 editBtnImg.src = editBtn;
@@ -35,6 +41,12 @@ btnCloseUpdateProfileIcon.src= btnCloseImg;
 const initialDefaultCards = new Section(initialCards, card);
 initialDefaultCards.renderer();
 
+//Carga de tarjetas de la Api
+
+const usersDefaultCards = await api.getCards();
+const initialApiCards = new Section(usersDefaultCards, card);
+initialApiCards.renderer();
+
 /* Validación de Formularios */
 
 const formProfile = new FormValidator("formulary-profile");
@@ -45,7 +57,20 @@ formProfile.enableValidation();
 formPlace.enableValidation();
 formUpdateProfileIcon.enableValidation();
 
-/* Manipulación de formulario Perfil */
+//Manipulación de formulario Update Profile Icon
+
+const openPopUpdateIcon = new PopupWithForm(popUpUpdateProfileIcon)
+btnUpdateProfileIcon.addEventListener("click", ()=>{
+  openPopUpdateIcon.open();
+  openPopUpdateIcon.setEventListeners();
+})
+
+openPopUpdateIcon._form.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  openPopUpdateIcon.setSubmitListeners();
+})
+
+//Manipulación de formulario Perfil
 
 const openPopProfile = new PopupWithForm(popUpProfile)
 
@@ -60,13 +85,12 @@ openPopProfile._form.addEventListener("submit", (event)=>{
 })
 
 
-/* Manipulación de formulario Place */
+//Manipulación de formulario Place
 
 const openPopPlace = new PopupWithForm(popUpPlace)
 btnAddPlace.addEventListener("click" , ()=>{ 
   openPopPlace.open();
   openPopPlace.setEventListeners();
-  /* formPlace.enableValidation(); */
 })
 
 openPopPlace._form.addEventListener("submit", (event)=>{
@@ -74,15 +98,3 @@ openPopPlace._form.addEventListener("submit", (event)=>{
   openPopPlace.setSubmitListeners();
 })
 
-/* Manipulación de formulario Update Profile Icon */
-
-const openPopUpdateIcon = new PopupWithForm(popUpUpdateProfileIcon)
-btnUpdateProfileIcon.addEventListener("click", ()=>{
-  openPopUpdateIcon.open();
-  openPopUpdateIcon.setEventListeners();
-})
-
-openPopUpdateIcon._form.addEventListener("submit",(event)=>{
-  event.preventDefault();
-  openPopUpdateIcon.setSubmitListeners();
-})

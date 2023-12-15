@@ -3,16 +3,16 @@ export default class UserInfo {
   constructor(userData){
     this._userData = userData;
     this._userName = userData.userName;
-    this._userJob = userData.userJob;    
+    this._userAbout = userData.userAbout;    
   }
 
   getUserInfo(){
     return(this._userData);
   }
 
-  setUserInfo(labelUserName, labelUserJob){
+  setUserInfo(labelUserName, labelUserAbout){
     labelUserName.textContent = this._userName;
-    labelUserJob.textContent = this._userJob;
+    labelUserAbout.textContent = this._userAbout;
   }
   
 }

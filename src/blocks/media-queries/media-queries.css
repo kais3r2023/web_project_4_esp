@@ -19,22 +19,32 @@
         grid-template-rows: auto auto auto;
     }
     .profile__avatar{
-        margin-top: 38px;
+        margin-top: 42px;
     }
 
     .profile__content{
         width: 200px;
     }
-    .profile__content_name{
+    .profile__content-name{
+        width: 196px;
         margin-top: 26px;
         font-size: 22px;
-        line-height: 27px;
+        line-height: normal;
         text-align: center;
     }
     .profile__content_subtitle{
         margin-top: 14px;
         font-size: 14px;
         line-height: 17px;
+    }
+    .profile__content-edit-button, #btnEdit{
+        
+        width: 18px;
+        height: 18px;
+    }
+    .profile__avatar-overlay{
+        top: 42px;
+        left: 66px;
     }
     .gallery{
         margin-top: 36px;
@@ -43,7 +53,7 @@
         justify-items: center;
         gap: 20px;
     }
-
+    
     .footer{
         width: 282px;
         margin-top: 50px;
