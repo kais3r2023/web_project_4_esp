@@ -1,7 +1,8 @@
 import PopupWithImage from "./PopupWithImage.js";
 import trashIcon from "/src/images/Trash-Can.png";
 import likeIcon from "/src/images/like.png";
-import { popUpConfirmation } from "./Cons.js";
+import blackLikeIcon from "/src/images/black-like.png"
+import { popUpConfirmation,api, myApiId } from "./Cons.js";
 import Popup from "./PopUp.js";
 
 
@@ -12,6 +13,8 @@ class Card{
     this._template = template;
     this._link = data.link;
     this._name = data.name;
+    this._likes = [];
+    this._id = data._id;
     
   }
     
@@ -31,9 +34,30 @@ class Card{
       this._element.querySelector(".gallery__card_photo").src = this._link;
       this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
       this._element.querySelector(".gallery__card_photo").alt = this._name;
+
+      //Carga de Mis Likes Activos
+      let isLike = false;
+      this._likes.forEach((like)=>{
+        if (like._id === myApiId){
+          isLike = true;
+        }
+      });
+
+      if(isLike){
+        this._element.querySelector(".gallery__card_bar-like").src = blackLikeIcon;
+        this._element.querySelector(".gallery__card_bar-like").classList.add("black-like");
+      } else{
+        this._element.querySelector(".gallery__card_bar-like").src = likeIcon;
+        this._element.querySelector(".gallery__card_bar-like").classList.remove("black-like");
+      }
+
+
+      // Mostrar Likes
+      this._element.querySelector(".gallery__card_bar-like-count").textContent = this._likes.length >0 ? this._likes.length : "";
       this.deleteCard();
       this.handleCardClick();
-      this.handleBlackLike();
+      this.handleLike();
+      this._element.id = this._id;
       return this._element;
     }
 
@@ -61,10 +85,28 @@ class Card{
     }
 
 
-  handleBlackLike(){
+  handleLike(){
     this._element.querySelector(".gallery__card_bar-like").addEventListener("click", ()=>{
+          console.log(this._element.id);
+        if(this._element.querySelector(".gallery__card_bar-like").classList.contains("black-like")){
+        api.deleteLike(this._element.id).then((res =>{
+          const initArrayLikes = res.likes;
+          console.log(res.likes);
+          console.log("if",initArrayLikes.length,initArrayLikes)
+          this._element.querySelector(".gallery__card_bar-like-count").textContent = initArrayLikes.length;
+          this._element.querySelector(".gallery__card_bar-like").src = likeIcon;
+          this._element.querySelector(".gallery__card_bar-like").classList.remove("black-like")
+        }))
+      } else{
+        api.addLike(this._element.id).then((res =>{
+          const initArraylikes = res.likes;
+          this._element.querySelector(".gallery__card_bar-like-count").textContent = initArraylikes.length;
+          this._element.querySelector(".gallery__card_bar-like").src = blackLikeIcon;
+        }))
+      }
       this._element.querySelector(".gallery__card_bar-like").classList.toggle("black-like");
     })
+    
   }
 
 }
@@ -74,26 +116,34 @@ class Card{
     super(template);
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
+    if(data.likes){
+      this._likes = data.likes;
+    }
     this._template = template;
 }
-
 }
 
 
 
 
 
-/* Tarjetas Nuevas */
+// Tarjetas Nuevas
 
-class NewCard extends Card {
+/* class NewCard extends Card {
   constructor(data, template) {
     super(template);
     this._name = data.name;
     this._link = data.link;
     this._template = template;
+    this._id = data._id;
+    if(data.likes){
+      this._likes = data.likes;
+    }
+    this._template = template;
 }
-}
+} */
 
 
 
-export{Card, DefaultCard, NewCard};
+export{Card, DefaultCard};

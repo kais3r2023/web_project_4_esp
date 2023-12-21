@@ -1,6 +1,6 @@
 import Popup from "./PopUp.js";
 import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api } from "./Cons.js";
-import { NewCard } from "./Card.js";
+import { DefaultCard} from "./Card.js";
 import UserInfo from "./UserInfo.js";
 import { avatarImg } from "../../page/index.js";
 
@@ -50,6 +50,7 @@ export default class PopupWithForm extends Popup{
     userInformation.userAbout = inputListValues.about;
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
+    //Subida de Perfil a la Api
     api.updateProfile({name: userInformation.userName, about: userInformation.userAbout});
     console.log(userInformation);
     }
@@ -58,16 +59,20 @@ export default class PopupWithForm extends Popup{
       const newData = {};
       newData.name = inputListValues.name;
       newData.link = inputListValues.link;
-      const addNewCard = new NewCard(newData, ".card");
+      api.addNewCard(newData).then((newData) => {
+      const addNewCard = new DefaultCard(newData, ".card");
       const cardElement = addNewCard.generateCard();
-      gallery.append(cardElement);
-      
+      gallery.append(cardElement);})
   }
 
   _addDomProfileAvatar(){
     const newAvatar = {};
     newAvatar.link = inputListValues.link;
     avatarImg.src = newAvatar.link;
+    //Subida de Img Avatar Profile a Api
+    api.updateAvatar({
+      avatar: newAvatar.link
+    });
   }
   
   setEventListeners(){

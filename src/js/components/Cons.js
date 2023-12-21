@@ -4,27 +4,39 @@ import { Api } from "./Api";
 export const initialCards = [
   {
     name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+    likes: [],
+    _id: "0b39b19bf6c712999f38bd92"
   },
   {
     name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+    likes: [],
+    _id: "0b39b19bf6c712999f38bd92"
   },
   {
     name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+    likes: [],
+    _id: "0b39b19bf6c712999f38bd92"
   },
   {
     name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+    likes: [],
+    _id: "0b39b19bf6c712999f38bd92"
   },
   {
     name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+    likes: [],
+    _id: "0b39b19bf6c712999f38bd92"
   },
   {
     name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+    likes: [],
+    _id: "0b39b19bf6c712999f38bd92"
   }
 ];
 
@@ -61,3 +73,4 @@ export const popUpProfile = document.querySelector('#pop-up-profile');
 export const popUpConfirmation = document.querySelector("#pop-up-confirmation");
 export const popUpUpdateProfileIcon = document.querySelector("#pop-up-update-avatar-icon");
 export const btnUpdateProfileIcon = document.querySelector("#btnUpdateProfileIcon");
+export const myApiId = "0b39b19bf6c712999f38bd92";

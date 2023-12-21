@@ -1,7 +1,7 @@
 .gallery__card_bar{
-    display: flex;
-    position: relative;
-    height: 79px;
-    max-width: 282px;
     align-items: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-self: center;
+    width: 246px;
 }

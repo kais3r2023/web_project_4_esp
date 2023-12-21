@@ -35,9 +35,9 @@
       <img class="pop-up__close-icon btn-close" id="close-icon-profile" alt="icono de cerrar profile">
       <form class="formulary" id="formulary-profile" novalidate>
         <h2 class="formulary__title">Edit profile</h2>
-        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="20" value="Jacques Cousteau" name="name" required >
+        <input class="formulary__data" id="name-profile" type="text" placeholder="Nombre" minlength="2" maxlength="40" value="Jacques Cousteau" name="name" required >
         <span class = "name-profile-error "></span>
-        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="21" value="Explorador" name="about" required >
+        <input class="formulary__data" id="about-me" type="text" placeholder="Acerca de mi" minlength="2" maxlength="200" value="Explorador" name="about" required >
         <span class = "about-me-error "></span>
         <button type="submit" class="formulary__save-button" id="btn-submit-profile">Guardar</button>
       </form>
@@ -85,7 +85,12 @@
   <div class="gallery__card">
     <img class="gallery__card_trash-can-icon" id="trash-can-img" alt="Tachito de Basura">
     <img class="gallery__card_photo">
-    <div class="gallery__card_bar"><h3 class="gallery__card_bar-title"></h3><img class="gallery__card_bar-like" alt="Corazon Like">
+    <div class="gallery__card_bar">
+      <h3 class="gallery__card_bar-title"></h3>
+      <div>
+        <img class="gallery__card_bar-like" alt="Corazon Like">
+        <p class="gallery__card_bar-like-count">4</p>
+      </div>
     </div>
   </div>
 </template>
