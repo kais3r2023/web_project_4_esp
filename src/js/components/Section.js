@@ -1,5 +1,5 @@
 import { DefaultCard } from "./Card.js";
-import { gallery } from "./Cons.js";
+import { gallery, myApiId } from "./Cons.js";
 
 export default class Section{
   constructor(data, cardSelector){
@@ -10,7 +10,12 @@ export default class Section{
 
   renderer(){   
     this._items.forEach((data)=>{
-      const defaultCard = new DefaultCard (data, this._selector);
+      const owner = data.owner;
+      let showDelete = true;
+      if(!!owner && owner._id !==  myApiId){
+        showDelete = false;
+      }
+      const defaultCard = new DefaultCard (data, this._selector, showDelete);
       const cardElement = defaultCard.generateCard();
       this.addItem(cardElement);
 })

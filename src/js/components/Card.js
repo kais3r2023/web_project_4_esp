@@ -2,7 +2,7 @@ import PopupWithImage from "./PopupWithImage.js";
 import trashIcon from "/src/images/Trash-Can.png";
 import likeIcon from "/src/images/like.png";
 import blackLikeIcon from "/src/images/black-like.png"
-import { popUpConfirmation,api, myApiId } from "./Cons.js";
+import { popUpConfirmation, api, myApiId } from "./Cons.js";
 import Popup from "./PopUp.js";
 
 
@@ -34,6 +34,12 @@ class Card{
       this._element.querySelector(".gallery__card_photo").src = this._link;
       this._element.querySelector(".gallery__card_bar-title").textContent = this._name;
       this._element.querySelector(".gallery__card_photo").alt = this._name;
+
+      //Mostrar Icono de borrar tarjeta
+
+      if(!this._showDelete){
+        this._element.querySelector(".gallery__card_trash-can-icon").style.display = "none";
+      }
 
       //Carga de Mis Likes Activos
       let isLike = false;
@@ -67,8 +73,14 @@ class Card{
         popUpConfirmationCard.setEventListeners();
         popUpConfirmationCard.open();
         popUpConfirmation.querySelector("#btn-confirmation").addEventListener("click",()=>{
-          this._element.remove();
-          popUpConfirmationCard.close();
+          if(!!this._id){
+            api.deleteCard(this._id).then(()=>{
+              this._element.remove();
+              popUpConfirmationCard.close();
+            })
+          }
+          /* this._element.remove(); */
+          /* popUpConfirmationCard.close(); */
         })
       })
     }
@@ -112,7 +124,7 @@ class Card{
 }
 
   class DefaultCard extends Card{
-  constructor(data, template) {
+  constructor(data, template, showDelete) {
     super(template);
     this._name = data.name;
     this._link = data.link;
@@ -120,12 +132,13 @@ class Card{
     if(data.likes){
       this._likes = data.likes;
     }
+    this._showDelete = showDelete;
     this._template = template;
 }
 }
 
 
-
+/* FALTA HACER EL BORRADO DE LAS TARJETAS EN LA API */
 
 
 // Tarjetas Nuevas
