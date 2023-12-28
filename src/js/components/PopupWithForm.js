@@ -55,12 +55,13 @@ export default class PopupWithForm extends Popup{
     console.log(userInformation);
     }
 
+    // Añadir tarjetas al Dom
   _addDomGallery(){
       const newData = {};
       newData.name = inputListValues.name;
       newData.link = inputListValues.link;
       api.addNewCard(newData).then((newData) => {
-      const addNewCard = new DefaultCard(newData, ".card");
+      const addNewCard = new DefaultCard(newData, ".card", true);
       const cardElement = addNewCard.generateCard();
       gallery.append(cardElement);})
   }

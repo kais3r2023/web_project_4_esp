@@ -34,6 +34,7 @@ btnCloseZoom.src = btnCloseImg;
 btnCloseConfirmation.src = btnCloseImg;
 btnCloseUpdateProfileIcon.src= btnCloseImg;
 
+
 //Carga de Profile
 export const apiDefaultProfile = await api.defaultProfile();
 profileName.textContent = apiDefaultProfile.name;

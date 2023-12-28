@@ -37,7 +37,9 @@ class Card{
 
       //Mostrar Icono de borrar tarjeta
 
-      if(!this._showDelete){
+      if(this._showDelete){
+        this._element.querySelector(".gallery__card_trash-can-icon").src = trashIcon;
+      } else{
         this._element.querySelector(".gallery__card_trash-can-icon").style.display = "none";
       }
 
@@ -79,8 +81,6 @@ class Card{
               popUpConfirmationCard.close();
             })
           }
-          /* this._element.remove(); */
-          /* popUpConfirmationCard.close(); */
         })
       })
     }
@@ -136,9 +136,6 @@ class Card{
     this._template = template;
 }
 }
-
-
-/* FALTA HACER EL BORRADO DE LAS TARJETAS EN LA API */
 
 
 // Tarjetas Nuevas
