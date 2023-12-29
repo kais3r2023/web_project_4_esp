@@ -10,8 +10,6 @@ export class Api{
     })
     .then((res)=>{
       if(res.ok){
-        console.log("Si llega ok");
-        console.log(res.status);
         return(res.json());
       }
     })
@@ -24,7 +22,6 @@ export class Api{
     })
     .then((res)=>res.json())
     .then((result)=>{
-      console.log("resultado update",result)
       return result;
     })
   }
@@ -36,7 +33,6 @@ export class Api{
     })
     .then((res)=>res.json())
     .then((result)=>{
-      console.log("resultado update",result)
       return result;
     })
   }
@@ -47,7 +43,6 @@ export class Api{
     })
     .then((res)=> res.json())
     .then((result)=>{
-      console.log(result);
       return result;
     });
   }
@@ -60,7 +55,6 @@ export class Api{
     })
     .then(res => res.json())
     .then((result)=>{
-      console.log("resultado update",result);
       return result;
     });
   }
@@ -72,7 +66,6 @@ export class Api{
     })
     .then(res=> res.json())
     .then(result =>{
-      console.log("resultado delete card".result);
       return result
     })
 

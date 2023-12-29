@@ -4,6 +4,7 @@ import likeIcon from "/src/images/like.png";
 import blackLikeIcon from "/src/images/black-like.png"
 import { popUpConfirmation, api, myApiId } from "./Cons.js";
 import Popup from "./PopUp.js";
+import PopupWithConfirmation from "./PopupWithConfirmation.js";
 
 
 
@@ -71,7 +72,7 @@ class Card{
 
     deleteCard(){
       this._element.querySelector(".gallery__card_trash-can-icon").addEventListener("click", ()=>{
-        const popUpConfirmationCard = new Popup(popUpConfirmation);
+        const popUpConfirmationCard = new PopupWithConfirmation(popUpConfirmation);
         popUpConfirmationCard.setEventListeners();
         popUpConfirmationCard.open();
         popUpConfirmation.querySelector("#btn-confirmation").addEventListener("click",()=>{
@@ -99,7 +100,6 @@ class Card{
 
   handleLike(){
     this._element.querySelector(".gallery__card_bar-like").addEventListener("click", ()=>{
-          console.log(this._element.id);
         if(this._element.querySelector(".gallery__card_bar-like").classList.contains("black-like")){
         api.deleteLike(this._element.id).then((res =>{
           const initArrayLikes = res.likes;
