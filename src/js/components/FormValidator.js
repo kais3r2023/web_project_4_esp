@@ -43,7 +43,7 @@ _setEventListeners(){
 
 /*Metodo Público*/
 enableValidation(){
-  const buttonForm = this.element.querySelector("#btn-place-save");
+  const buttonForm = this.element.querySelector(".formulary__save-button");
   if(buttonForm){
     buttonForm.disabled= true;
   }

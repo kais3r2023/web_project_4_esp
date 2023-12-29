@@ -1,5 +1,5 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api } from "./Cons.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api, btnFormSubmitForClass} from "./Cons.js";
 import { DefaultCard} from "./Card.js";
 import UserInfo from "./UserInfo.js";
 import { avatarImg } from "../../page/index.js";
@@ -11,13 +11,11 @@ export default class PopupWithForm extends Popup{
     this._popupSelector = popupSelector;
     this._form = this._popupSelector.querySelector(".formulary");
     this._inputList = this._form.querySelectorAll(".formulary__data");
-    /* this._btnClose = this._popupSelector.querySelector(".btn-close"); */
+    this._buttonSubmit = this._form.querySelector(".formulary__save-button");
   }
 
   _getInputValues(){
-    /*for(let i = 0; i<2 ; i++){
-      inputListValues[i]= this._inputList[i].value;
-    };*/
+    
     this._inputList.forEach((input) =>{
       inputListValues[input.name] = input.value;
     });
@@ -50,9 +48,10 @@ export default class PopupWithForm extends Popup{
     userInformation.userAbout = inputListValues.about;
     const addUserInfo = new UserInfo(userInformation);
     addUserInfo.setUserInfo(profileName, profileAbout);
-    //Subida de Perfil a la Api
-    api.updateProfile({name: userInformation.userName, about: userInformation.userAbout});
-    console.log(userInformation);
+    this._buttonSubmit.innerText = "Guardando...";
+    this._buttonSubmit.disable = true;
+    api.updateProfile({name: userInformation.userName, about: userInformation.userAbout})
+      .finally(()=>{this._savingLoaderRefresh("Guardar")});
     }
 
     // Añadir tarjetas al Dom
@@ -60,22 +59,31 @@ export default class PopupWithForm extends Popup{
       const newData = {};
       newData.name = inputListValues.name;
       newData.link = inputListValues.link;
-      api.addNewCard(newData).then((newData) => {
-      const addNewCard = new DefaultCard(newData, ".card", true);
-      const cardElement = addNewCard.generateCard();
-      gallery.append(cardElement);})
+      this._buttonSubmit.innerText = "Creando...";
+    this._buttonSubmit.disable = true;
+      api.addNewCard(newData)
+        .then((newData) => {
+          const addNewCard = new DefaultCard(newData, ".card", true);
+          const cardElement = addNewCard.generateCard();
+          gallery.append(cardElement);})
+          .finally(()=>{this._savingLoaderRefresh("Crear")});
   }
 
   _addDomProfileAvatar(){
     const newAvatar = {};
     newAvatar.link = inputListValues.link;
     avatarImg.src = newAvatar.link;
-    //Subida de Img Avatar Profile a Api
+    this._buttonSubmit.innerText = "Guardando...";
+    this._buttonSubmit.disable = true;
     api.updateAvatar({
       avatar: newAvatar.link
-    });
+    }).finally(()=>{this._savingLoaderRefresh("Guardar")});
   }
   
+  _savingLoaderRefresh(savingText){
+    this._buttonSubmit.innerText = `${savingText}`;
+    this._buttonSubmit.disable = false;
+  }
   setEventListeners(){
       super.setEventListeners();
       super._handleEscClose();

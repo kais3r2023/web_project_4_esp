@@ -59,21 +59,23 @@ const formProfile = new FormValidator("formulary-profile");
 const formPlace = new FormValidator("formulary-place");
 const formUpdateProfileIcon = new FormValidator("formulary-update-avatar-icon");
 
-formProfile.enableValidation();
-formPlace.enableValidation();
-formUpdateProfileIcon.enableValidation();
+
+
+
+
 
 //Manipulación de formulario Update Profile Icon
 
-const openPopUpdateIcon = new PopupWithForm(popUpUpdateProfileIcon)
+const openPopUpdateAvatar = new PopupWithForm(popUpUpdateProfileIcon)
 btnUpdateProfileIcon.addEventListener("click", ()=>{
-  openPopUpdateIcon.open();
-  openPopUpdateIcon.setEventListeners();
+  openPopUpdateAvatar.open();
+  formUpdateProfileIcon.enableValidation();
+  openPopUpdateAvatar.setEventListeners();
 })
 
-openPopUpdateIcon._form.addEventListener("submit",(event)=>{
+openPopUpdateAvatar._form.addEventListener("submit",(event)=>{
   event.preventDefault();
-  openPopUpdateIcon.setSubmitListeners();
+  openPopUpdateAvatar.setSubmitListeners();
 })
 
 //Manipulación de formulario Perfil
@@ -82,6 +84,7 @@ const openPopProfile = new PopupWithForm(popUpProfile)
 
 editButtonProfile.addEventListener("click" , ()=>{ 
   openPopProfile.open();
+  formProfile.enableValidation();
   openPopProfile.setEventListeners();
 })
 
@@ -94,8 +97,9 @@ openPopProfile._form.addEventListener("submit", (event)=>{
 //Manipulación de formulario Place
 
 const openPopPlace = new PopupWithForm(popUpPlace)
-btnAddPlace.addEventListener("click" , ()=>{ 
+btnAddPlace.addEventListener("click" , ()=>{
   openPopPlace.open();
+  formPlace.enableValidation();
   openPopPlace.setEventListeners();
 })
 
