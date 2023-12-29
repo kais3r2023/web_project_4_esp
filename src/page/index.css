@@ -25,7 +25,7 @@
 @import url(/src/blocks/pop-up/__container/-confirmation/pop-up__container-confirmation.css);
 @import url(/src/blocks/pop-up/__container/__close-icon/pop-up__close-icon.css);
 @import url(/src/blocks/pop-up/__container/formulary/formulary.css);
-@import url(/src/blocks/pop-up/__container/formulary/_title/formulary_title.css);
+@import url(/src/blocks/pop-up/__container/formulary/_title/formulary-title.css);
 @import url(/src/blocks/pop-up/__container/formulary/__data/formulary__data.css);
 @import url(/src/blocks/pop-up/__container/formulary/__save-button/formulary__save-button.css);
 @import url(/src/blocks/pop-up/__container/formulary/__data-error/formulary__data-error.css);
