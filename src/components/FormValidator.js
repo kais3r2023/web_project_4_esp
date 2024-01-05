@@ -19,16 +19,9 @@ _checkInputValidity (inputElement) {
 
   //Validando los inputs
   const inputList = Array.from(this.element.querySelectorAll('.formulary__data'));
-  let formIsValid = true;
-  for (let i = 0; i < inputList.length; i++) {
-    const input = inputList[i];
-    if (!input.validity.valid) {
-      formIsValid = false;
-      break;
-    }
-  }
+  const isNotValid = inputList.some((input)=>!input.validity.valid);
   const buttonForm = this.element.querySelector(".formulary__save-button");
-  buttonForm.disabled = !formIsValid;
+  buttonForm.disabled = isNotValid;
 };
 
 _setEventListeners(){

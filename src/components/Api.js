@@ -32,9 +32,6 @@ export class Api{
       body: JSON.stringify(data)
     })
     .then((res)=>res.json())
-    .then((result)=>{
-      return result;
-    })
   }
   // Cards
   getCards(){
@@ -42,9 +39,6 @@ export class Api{
       headers:this._headers
     })
     .then((res)=> res.json())
-    .then((result)=>{
-      return result;
-    });
   }
   
   addNewCard(data){
@@ -54,9 +48,6 @@ export class Api{
       body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then((result)=>{
-      return result;
-    });
   }
 
   deleteCard(cardId){
@@ -65,10 +56,6 @@ export class Api{
       headers: this._headers,
     })
     .then(res=> res.json())
-    .then(result =>{
-      return result
-    })
-
   }
 //Likes
 addLike(cardId) {

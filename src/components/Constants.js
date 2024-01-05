@@ -1,4 +1,4 @@
-import { Api } from "./Api";
+import { Api } from "./Api.js";
 
 // Variables Globales
 export const initialCards = [

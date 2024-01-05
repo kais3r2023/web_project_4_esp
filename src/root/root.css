@@ -14,8 +14,8 @@ body{
 
 .page{
     display: flex;
-    position: absolute;
     flex-direction: column;
     justify-content: center;
     margin: 0;
+    width: 100%;
 }

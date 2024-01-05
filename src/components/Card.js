@@ -2,7 +2,7 @@ import PopupWithImage from "./PopupWithImage.js";
 import trashIcon from "/src/images/Trash-Can.png";
 import likeIcon from "/src/images/like.png";
 import blackLikeIcon from "/src/images/black-like.png"
-import { popUpConfirmation, api, myApiId } from "./Cons.js";
+import { popUpConfirmation, api, myApiId } from "./Constants.js";
 import Popup from "./PopUp.js";
 import PopupWithConfirmation from "./PopupWithConfirmation.js";
 
@@ -137,22 +137,6 @@ class Card{
 }
 }
 
-
-// Tarjetas Nuevas
-
-/* class NewCard extends Card {
-  constructor(data, template) {
-    super(template);
-    this._name = data.name;
-    this._link = data.link;
-    this._template = template;
-    this._id = data._id;
-    if(data.likes){
-      this._likes = data.likes;
-    }
-    this._template = template;
-}
-} */
 
 
 

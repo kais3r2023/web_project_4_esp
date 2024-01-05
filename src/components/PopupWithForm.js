@@ -1,8 +1,8 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api, btnFormSubmitForClass} from "./Cons.js";
+import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api} from "./Constants.js";
 import { DefaultCard} from "./Card.js";
 import UserInfo from "./UserInfo.js";
-import { avatarImg } from "../../page/index.js";
+import { avatarImg } from "../page/index.js";
 
 
 export default class PopupWithForm extends Popup{
@@ -64,7 +64,7 @@ export default class PopupWithForm extends Popup{
         .then((newData) => {
           const addNewCard = new DefaultCard(newData, ".card", true);
           const cardElement = addNewCard.generateCard();
-          gallery.append(cardElement);})
+          gallery.insertBefore(cardElement, gallery.firstChild);})
           .finally(()=>{this._savingLoaderRefresh("Crear")});
   }
 
@@ -103,4 +103,4 @@ export default class PopupWithForm extends Popup{
     this._form.reset();
   }
 }
-export{PopupWithForm};
+/* export{PopupWithForm}; */

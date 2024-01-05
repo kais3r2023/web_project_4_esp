@@ -1,5 +1,5 @@
 import Popup from "./PopUp.js";
-import { templateZoom } from "./Cons.js";
+import { templateZoom } from "./Constants.js";
 
 export default class PopupWithImage extends Popup{
   constructor(popupSelector){

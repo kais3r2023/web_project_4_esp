@@ -1,6 +1,6 @@
 .profile__avatar{
-    width: 120px;
-    height: 120px;
+    width: 168px;
+    height: 168px;
     margin-right: 30px;
     object-fit: cover;
     z-index: 1;
@@ -8,8 +8,8 @@
 }
 
 .profile__avatar-overlay{
-    width: 120px;
-    height: 120px;
+    width: 168px;
+    height: 168px;
     background-color: rgba(0,0,0,0);
     position: absolute;
     z-index: 2;

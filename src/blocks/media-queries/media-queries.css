@@ -1,22 +1,12 @@
-@media screen and (max-width:320px){
 
-    .page{
-        width: 282px;
-        margin-top: 28px;
-    }
+@media screen and (max-width : 1024px){
 
-    .header__logo{
-        width: 126px;
-        height: 24px;
-    }
-    .header__line{
-        margin-top: 32px;
-    }
+}
+
+@media screen and (max-width : 768px) {
     .profile{
         justify-items: center;
-        display: grid;
         grid-template-columns: auto;
-        grid-template-rows: auto auto auto;
     }
     .profile__avatar{
         margin-top: 42px;
@@ -47,11 +37,67 @@
         left: 66px;
     }
     .gallery{
-        margin-top: 36px;
-        display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: repeat(2, auto);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:600px){
+    .gallery{
+        grid-template-columns: repeat(1, auto);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:320px){
+
+    .page{
+        width: 282px;
+        margin-top: 28px;
+    }
+
+    .header__logo{
+        width: 126px;
+        height: 24px;
+    }
+    .header__line{
+        margin-top: 32px;
+    }
+    .profile{
         justify-items: center;
-        gap: 20px;
+        grid-template-rows: 2fr 1fr 1fr;
+        grid-template-columns: auto;
+    }
+
+    .profile__content{
+        width: 200px;
+        grid-template-rows: 2fr 1fr;
+        column-gap: 0px;
+    }
+    .profile__content-name{
+        width: 196px;
+        margin-top: 26px;
+        font-size: 22px;
+        line-height: normal;
+        text-align: center;
+    }
+    .profile__content-subtitle{
+        margin-top: 14px;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+    }
+    .profile__content-edit-button{
+        align-self: end;
+    }
+    .profile__avatar-overlay{
+        left: 42px;
+        top: 81px;
+    }
+    .gallery{
+        margin-top: 36px;
+        grid-template-columns: repeat(1, auto);
+        justify-items: center;
     }
     
     .footer{
@@ -90,6 +136,10 @@
         width: 270px;
         margin-top: 10px;
     }
+
+    .template-zoom__container{
+    }
+
     .template-zoom__image{
         width: 240px;
         height: 299px;
@@ -97,4 +147,8 @@
     .formulary__data-error_active{
         width: 238px;
     }
+}
+
+@media screen and (min-width : 1280px){
+
 }

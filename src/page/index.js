@@ -4,10 +4,10 @@ import avatarPhoto from "../images/Avatar.png";
 import btnAddImg from "../images/Add Button.png";
 import logoImg from "../images/logo.png";
 import tripletenImg from "../images/tripletenIcon.png";
-import { FormValidator } from "../js/components/FormValidator.js";
-import {PopupWithForm} from "../js/components/PopupWithForm.js";
-import { popUpProfile,gallery, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../js/components/Cons.js";
-import {Section} from "../js/components/Section.js";
+import { FormValidator } from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import { popUpProfile,gallery, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../components/Constants.js";
+import {Section} from "../components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
 
 
@@ -58,10 +58,6 @@ initialApiCards.renderer();
 const formProfile = new FormValidator("formulary-profile");
 const formPlace = new FormValidator("formulary-place");
 const formUpdateProfileIcon = new FormValidator("formulary-update-avatar-icon");
-
-
-
-
 
 
 //Manipulación de formulario Update Profile Icon

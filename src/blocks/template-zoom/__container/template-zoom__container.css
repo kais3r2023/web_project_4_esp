@@ -1,3 +1,6 @@
 .template-zoom__container{
+    flex-direction: column;
     position: absolute;
+    z-index: 4;
+    align-self: center;
 }
