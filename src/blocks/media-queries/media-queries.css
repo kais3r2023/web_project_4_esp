@@ -1,58 +1,51 @@
 
-@media screen and (max-width : 1024px){
-
-}
-
 @media screen and (max-width : 768px) {
+
     .profile{
-        justify-items: center;
-        grid-template-columns: auto;
-    }
-    .profile__avatar{
-        margin-top: 42px;
+        width: 80vw;
+        grid-template-columns: 100px auto 100px;
     }
 
-    .profile__content{
-        width: 200px;
+    .profile__avatar , .profile__avatar-overlay{
+        width: 100px;
+        height: 100px;
     }
+    .profile__content{
+        grid-column-gap: 0px;
+    }
+
     .profile__content-name{
         width: 196px;
         margin-top: 26px;
         font-size: 22px;
         line-height: normal;
-        text-align: center;
     }
+
     .profile__content_subtitle{
         margin-top: 14px;
         font-size: 14px;
         line-height: 17px;
     }
+
     .profile__content-edit-button, #btnEdit{
-        
         width: 18px;
         height: 18px;
     }
-    .profile__avatar-overlay{
-        top: 42px;
-        left: 66px;
+
+    .add-button-place{
+        width: 100px;
+        margin-bottom: 0;
     }
+
     .gallery{
         grid-template-columns: repeat(2, auto);
-        justify-content: center;
     }
+    
 }
 
-@media screen and (max-width:600px){
-    .gallery{
-        grid-template-columns: repeat(1, auto);
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width:320px){
-
+@media screen and (max-width : 600px) {
     .page{
-        width: 282px;
+        width: 80vw;
         margin-top: 28px;
     }
 
@@ -88,16 +81,12 @@
         text-align: center;
     }
     .profile__content-edit-button{
-        align-self: end;
-    }
-    .profile__avatar-overlay{
-        left: 42px;
-        top: 81px;
+        align-self: center;
     }
     .gallery{
+        width: 80vw;
         margin-top: 36px;
         grid-template-columns: repeat(1, auto);
-        justify-items: center;
     }
     
     .footer{
@@ -136,10 +125,7 @@
         width: 270px;
         margin-top: 10px;
     }
-
-    .template-zoom__container{
-    }
-
+    
     .template-zoom__image{
         width: 240px;
         height: 299px;
@@ -147,8 +133,4 @@
     .formulary__data-error_active{
         width: 238px;
     }
-}
-
-@media screen and (min-width : 1280px){
-
 }

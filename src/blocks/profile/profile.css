@@ -1,8 +1,9 @@
 .profile{
     display: grid;
-    grid-template-columns: auto minmax(415px, auto) auto;
-    align-items: center;
-    text-align: left;
+    grid-template-columns: 168px auto 150px;
+    place-content: center;
     position: relative;
     margin-top: 36px;
+    justify-content: space-around;
+    grid-column-gap: 1vw;
 }

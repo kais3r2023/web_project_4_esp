@@ -2,6 +2,8 @@
     margin-top: 46px;
     display: grid;
     grid-template-columns: repeat(3, auto);
-    column-gap: 17px;
+    grid-column-gap: 1vw;
     row-gap: 20px;
+    justify-content: center;
+
 }
