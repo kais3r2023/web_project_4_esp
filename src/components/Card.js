@@ -3,7 +3,6 @@ import trashIcon from "/src/images/Trash-Can.png";
 import likeIcon from "/src/images/like.png";
 import blackLikeIcon from "/src/images/black-like.png"
 import { popUpConfirmation, api, myApiId } from "./Constants.js";
-import Popup from "./PopUp.js";
 import PopupWithConfirmation from "./PopupWithConfirmation.js";
 
 
@@ -43,15 +42,10 @@ class Card{
       } else{
         this._element.querySelector(".gallery__card_trash-can-icon").style.display = "none";
       }
-
+      console.log(this._likes);
       //Carga de Mis Likes Activos
-      let isLike = false;
-      this._likes.forEach((like)=>{
-        if (like._id === myApiId){
-          isLike = true;
-        }
-      });
-
+      let isLike = this._likes.some((like)=>like._id === myApiId);
+      
       if(isLike){
         this._element.querySelector(".gallery__card_bar-like").src = blackLikeIcon;
         this._element.querySelector(".gallery__card_bar-like").classList.add("black-like");

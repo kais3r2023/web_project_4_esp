@@ -11,10 +11,7 @@ export default class Section{
   renderer(){   
     this._items.forEach((data)=>{
       const owner = data.owner;
-      let showDelete = true;
-      if(!!owner && owner._id !==  myApiId){
-        showDelete = false;
-      }
+      let showDelete = !owner || owner._id ===  myApiId;
       const defaultCard = new DefaultCard (data, this._selector, showDelete);
       const cardElement = defaultCard.generateCard();
       this.addItem(cardElement);

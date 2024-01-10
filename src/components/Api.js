@@ -3,16 +3,19 @@ export class Api{
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
+  returnResponse(res){
+    if(res.ok){
+      return res.json();
+    }
+    return Promise.reject(res.status);
+  }
+
   //Profile
   defaultProfile(){
     return fetch(`${this._baseUrl}/users/me`,{
       headers:this._headers
     })
-    .then((res)=>{
-      if(res.ok){
-        return(res.json());
-      }
-    })
+    .then(this.returnResponse);
   }
   updateAvatar(data){
     return fetch(`${this._baseUrl}/users/me/avatar`,{
@@ -20,10 +23,7 @@ export class Api{
       headers: this._headers,
       body: JSON.stringify(data)
     })
-    .then((res)=>res.json())
-    .then((result)=>{
-      return result;
-    })
+    .then(this.returnResponse);
   }
   updateProfile(data){
     return fetch(`${this._baseUrl}/users/me`,{
@@ -31,14 +31,14 @@ export class Api{
       headers: this._headers,
       body: JSON.stringify(data)
     })
-    .then((res)=>res.json())
+    .then(this.returnResponse);
   }
   // Cards
   getCards(){
     return fetch(`${this._baseUrl}/cards`,{
       headers:this._headers
     })
-    .then((res)=> res.json())
+    .then(this.returnResponse);
   }
   
   addNewCard(data){
@@ -47,7 +47,7 @@ export class Api{
       headers: this._headers,
       body: JSON.stringify(data)
     })
-    .then(res => res.json())
+    .then(this.returnResponse);
   }
 
   deleteCard(cardId){
@@ -55,7 +55,7 @@ export class Api{
       method: "DELETE",
       headers: this._headers,
     })
-    .then(res=> res.json())
+    .then(this.returnResponse);
   }
 //Likes
 addLike(cardId) {
@@ -63,28 +63,15 @@ addLike(cardId) {
     method: "PUT",
     headers: this._headers,
   })
-  .then((res)=>{
-    if(res.ok){
-      return res.json();
-    }
-    return Promise.reject(res.status);
-  })
-
-  .catch((error) => {
-      console.log(`Error: ${error}`);
-  });
+  .then(this.returnResponse);
 }
+
 deleteLike(cardId){
   return fetch(`${this._baseUrl}/cards/likes/${cardId}`,{
     method: "DELETE",
     headers: this._headers,
   })
-  .then((res)=>{
-    if(res.ok){
-      return res.json();
-    }
-    return Promise.reject(res.status);
-  })
+  .then(this.returnResponse);
 }
 
 }
