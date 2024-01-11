@@ -6,7 +6,7 @@ import logoImg from "../images/logo.png";
 import tripletenImg from "../images/tripletenIcon.png";
 import { FormValidator } from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import { popUpProfile,gallery, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, initialCards, card, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../components/Constants.js";
+import { popUpProfile,gallery, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../components/Constants.js";
 import {Section} from "../components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
 
@@ -41,15 +41,10 @@ profileName.textContent = apiDefaultProfile.name;
 profileAbout.textContent = apiDefaultProfile.about;
 avatarImg.src = apiDefaultProfile.avatar;
 
-//Tarjetas Iniciales
-
-/* const initialDefaultCards = new Section(initialCards, card);
-initialDefaultCards.renderer(); */
-
 //Carga de tarjetas de la Api
 
 const usersDefaultCards = await api.getCards();
-const initialApiCards = new Section( usersDefaultCards, card);
+const initialApiCards = new Section( usersDefaultCards, ".card" );
 initialApiCards.renderer();
 
 

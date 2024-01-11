@@ -48,7 +48,7 @@ export const api = new Api({
   }
 });
 
-export const card = ".card";
+
 export const templateZoom = document.querySelector("#template-zoom");
 export const inputListValues = [];
 export const profileName = document.querySelector('.profile__content-name');

@@ -9,13 +9,16 @@ import PopupWithConfirmation from "./PopupWithConfirmation.js";
 
 class Card{
   
-  constructor(data, template){
+  constructor(data, template, showDelete){
     this._template = template;
     this._link = data.link;
     this._name = data.name;
     this._likes = [];
     this._id = data._id;
-    
+    if(data.likes){
+      this._likes = data.likes;
+    }
+    this._showDelete = showDelete;    
   }
     
   _getTemplate() {
@@ -42,7 +45,7 @@ class Card{
       } else{
         this._element.querySelector(".gallery__card_trash-can-icon").style.display = "none";
       }
-      console.log(this._likes);
+
       //Carga de Mis Likes Activos
       let isLike = this._likes.some((like)=>like._id === myApiId);
       
@@ -97,8 +100,6 @@ class Card{
         if(this._element.querySelector(".gallery__card_bar-like").classList.contains("black-like")){
         api.deleteLike(this._element.id).then((res =>{
           const initArrayLikes = res.likes;
-          console.log(res.likes);
-          console.log("if",initArrayLikes.length,initArrayLikes)
           this._element.querySelector(".gallery__card_bar-like-count").textContent = initArrayLikes.length;
           this._element.querySelector(".gallery__card_bar-like").src = likeIcon;
           this._element.querySelector(".gallery__card_bar-like").classList.remove("black-like")
@@ -117,21 +118,7 @@ class Card{
 
 }
 
-  class DefaultCard extends Card{
-  constructor(data, template, showDelete) {
-    super(template);
-    this._name = data.name;
-    this._link = data.link;
-    this._id = data._id;
-    if(data.likes){
-      this._likes = data.likes;
-    }
-    this._showDelete = showDelete;
-    this._template = template;
-}
-}
 
 
 
-
-export{Card, DefaultCard};
+export{Card};
