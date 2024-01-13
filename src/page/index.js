@@ -6,9 +6,10 @@ import logoImg from "../images/logo.png";
 import tripletenImg from "../images/tripletenIcon.png";
 import { FormValidator } from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import { popUpProfile,gallery, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../components/Constants.js";
-import {Section} from "../components/Section.js";
+import { popUpProfile, myApiId, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../components/Constants.js";
+import Section from "../components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
+import { Card } from "../components/Card.js";
 
 
 //Carga de Imagenes
@@ -44,8 +45,19 @@ avatarImg.src = apiDefaultProfile.avatar;
 //Carga de tarjetas de la Api
 
 const usersDefaultCards = await api.getCards();
-const initialApiCards = new Section( usersDefaultCards, ".card" );
-initialApiCards.renderer();
+
+const generateCards = (data) => {
+  const owner = data.owner;
+  let showDelete = !owner || owner._id ===  myApiId;
+  const defaultCard = new Card(data, ".card" , showDelete);
+  return defaultCard.generateCard();
+}
+
+const sectionCards = new Section({
+  items: usersDefaultCards,
+  renderer: generateCards
+},".gallery" );
+sectionCards.renderer();
 
 
 /* Validación de Formularios */

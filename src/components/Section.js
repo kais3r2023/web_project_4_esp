@@ -1,25 +1,19 @@
-import { Card } from "./Card.js";
-import { gallery, myApiId } from "./Constants.js";
-
 export default class Section{
-  constructor(data, cardSelector){
-    this._items = data;
-    this._selector = cardSelector;
-    this.likes = data.likes;
+  constructor({items, renderer}, selector) {
+    this._items = items;
+    this._renderer = renderer;
+    this._container = document.querySelector(selector);
   }
 
-  renderer(){   
-    this._items.forEach((data)=>{
-      const owner = data.owner;
-      let showDelete = !owner || owner._id ===  myApiId;
-      const defaultCard = new Card (data, this._selector, showDelete);
-      const cardElement = defaultCard.generateCard();
+  renderer() {
+    
+    this._items.forEach(item =>{
+      const cardElement = this._renderer(item);
       this.addItem(cardElement);
-})
+    });
   }
-  addItem(cardElement){
-    gallery.append(cardElement);
+
+  addItem(element) {
+    this._container.append(element);
   }
 }
-
-export{Section};
