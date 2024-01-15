@@ -2,20 +2,19 @@
 
 ### Descripción general
 
-* Figma
-* Imágenes
+* Uso de metodo BEM Css
+* Uso de Animaciones con Css 
 * Creacion de nodos con CreateElement
 * Funciones callbacks JavaScript
-* Creacion de botones que llaman Pop Ups con JavaScript
+* Uso de Programacion orientada a Objetos
 * Utilizacion de formularios con Javascript
-* Usa webpack
-* creacion de clases y relacion entre clases
+* Uso de webpack
+* Uso de relacion entre clases Javascript
+* Utilizacion de Webpack
+* Implementacion solicitudes a Api
+
 **Figma**
 
-* [Enlace al proyecto en Figma](https://www.figma.com/file/i6HpqEzmTcK6wgBE7Dn4aZ/Web_Brief_Sprint_5_ES-%7C-Alrededor-de-los-EEUU-%7C-desktop-%2B-mobile?node-id=0-1&t=DmGznbfttnw5ZvQa-0)
+* [Enlace al proyecto en Figma](https://www.figma.com/file/EGCbebw7k4kMOWt2qQcpEu/Web_Brief_Sprint_10_ES-%7C-JavaScript-aplicado?type=design&node-id=0-1&mode=design&t=o0gtB4c2GCkWdNLY-0)
 
-**Imágenes**
 
-A la hora de trabajar, debes optar por exportar las imágenes directamente desde Figma; te recomendamos hacerlo para practicar más. No olvides optimizarlas [aquí](https://tinypng.com/), para que tu proyecto cargue más rápido. 
-
-¡Esperamos que te diviertas con JavaScript!

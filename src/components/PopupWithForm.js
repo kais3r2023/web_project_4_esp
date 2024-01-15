@@ -1,7 +1,5 @@
 import Popup from "./PopUp.js";
-import { inputListValues, profileName, profileAbout, popUpProfile, popUpPlace, popUpUpdateProfileIcon, gallery, api} from "./Constants.js";
-import { Card } from "./Card.js";
-import UserInfo from "./UserInfo.js";
+import { inputListValues, api} from "./Constants.js";
 import { avatarImg } from "../page/index.js";
 
 
@@ -21,56 +19,10 @@ export default class PopupWithForm extends Popup{
     });
       return(inputListValues);
     }
-  
 
-  _formAssignment(){
-    if(this._popupSelector === popUpProfile){
-      this._addDomProfile();
-      
-
-    }
-    else if(this._popupSelector === popUpPlace){
-      this._addDomGallery();
-      
-      
-    }
-    else if(this._popupSelector === popUpUpdateProfileIcon){
-      this._addDomProfileAvatar();
-    }
-    else{
-      console.log("no encuentro un formulario valido");
-    }
-  }
-  _addDomProfile(){
-    const userInformation = {};
-    userInformation.userName = inputListValues.name;
-    userInformation.userAbout = inputListValues.about;
-    const addUserInfo = new UserInfo(userInformation);
-    addUserInfo.setUserInfo(profileName, profileAbout);
-    this._buttonSubmit.innerText = "Guardando...";
-    this._buttonSubmit.disable = true;
-    api.updateProfile({name: userInformation.userName, about: userInformation.userAbout})
-      .finally(()=>{this._savingLoaderRefresh("Guardar")});
-    }
-
-    // Añadir tarjetas al Dom
-  _addDomGallery(){
-      const newData = {};
-      newData.name = inputListValues.name;
-      newData.link = inputListValues.link;
-      this._buttonSubmit.innerText = "Creando...";
-    this._buttonSubmit.disable = true;
-      api.addNewCard(newData)
-        .then((newData) => {
-          const addNewCard = new Card(newData, ".card", true);
-          const cardElement = addNewCard.generateCard();
-          gallery.insertBefore(cardElement, gallery.firstChild);})
-          .finally(()=>{this._savingLoaderRefresh("Crear")});
-  }
-
-  _addDomProfileAvatar(){
+  _addDomProfileAvatar(input){
     const newAvatar = {};
-    newAvatar.link = inputListValues.link;
+    newAvatar.link = input.link;
     avatarImg.src = newAvatar.link;
     this._buttonSubmit.innerText = "Guardando...";
     this._buttonSubmit.disable = true;
@@ -87,12 +39,6 @@ export default class PopupWithForm extends Popup{
       super.setEventListeners();
       super._handleEscClose();
       
-  }
-
-  setSubmitListeners(){
-    this._getInputValues();
-    this._formAssignment();
-    this.close();
   }
 
   close(){

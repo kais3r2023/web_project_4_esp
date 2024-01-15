@@ -6,11 +6,14 @@ import logoImg from "../images/logo.png";
 import tripletenImg from "../images/tripletenIcon.png";
 import { FormValidator } from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import { popUpProfile, myApiId, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, btnCloseProfile, btnClosePlace, btnCloseZoom, btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon, profileName, profileAbout, api} from "../components/Constants.js";
+import { popUpProfile, myApiId, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, 
+btnCloseProfile, btnClosePlace, btnCloseZoom, 
+btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon,btnSubProfile ,
+profileName, profileAbout, btnSubPLace, gallery, api} from "../components/Constants.js";
 import Section from "../components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
 import { Card } from "../components/Card.js";
-
+import UserInfo from "../components/UserInfo.js";
 
 //Carga de Imagenes
 //Img Tripleten Icon
@@ -42,6 +45,8 @@ profileName.textContent = apiDefaultProfile.name;
 profileAbout.textContent = apiDefaultProfile.about;
 avatarImg.src = apiDefaultProfile.avatar;
 
+
+
 //Carga de tarjetas de la Api
 
 const usersDefaultCards = await api.getCards();
@@ -62,9 +67,9 @@ sectionCards.renderer();
 
 /* Validación de Formularios */
 
-const formProfile = new FormValidator("formulary-profile");
-const formPlace = new FormValidator("formulary-place");
-const formUpdateProfileIcon = new FormValidator("formulary-update-avatar-icon");
+const formProfileValidator = new FormValidator("formulary-profile");
+const formplaceValidator = new FormValidator("formulary-place");
+const formAvatarValidator = new FormValidator("formulary-update-avatar-icon");
 
 
 //Manipulación de formulario Update Profile Icon
@@ -72,13 +77,15 @@ const formUpdateProfileIcon = new FormValidator("formulary-update-avatar-icon");
 const openPopUpdateAvatar = new PopupWithForm(popUpUpdateProfileIcon)
 btnUpdateProfileIcon.addEventListener("click", ()=>{
   openPopUpdateAvatar.open();
-  formUpdateProfileIcon.enableValidation();
+  formAvatarValidator.enableValidation();
   openPopUpdateAvatar.setEventListeners();
 })
 
 openPopUpdateAvatar._form.addEventListener("submit",(event)=>{
   event.preventDefault();
-  openPopUpdateAvatar.setSubmitListeners();
+  const inputValues = openPopUpdateAvatar._getInputValues();
+  openPopUpdateAvatar._addDomProfileAvatar(inputValues);
+  openPopUpdateAvatar.close();
 })
 
 //Manipulación de formulario Perfil
@@ -87,13 +94,21 @@ const openPopProfile = new PopupWithForm(popUpProfile)
 
 editButtonProfile.addEventListener("click" , ()=>{ 
   openPopProfile.open();
-  formProfile.enableValidation();
+  formProfileValidator.enableValidation();
   openPopProfile.setEventListeners();
 })
 
 openPopProfile._form.addEventListener("submit", (event)=>{
   event.preventDefault();
-  openPopProfile.setSubmitListeners();
+  const inputValues = openPopProfile._getInputValues();
+  const addUserInfo = new UserInfo(inputValues);
+  addUserInfo.setUserInfo(profileName, profileAbout);
+  btnSubProfile.innerText = "Guardando...";
+  btnSubProfile.disable = true;
+  api.updateProfile({name: inputValues.name, about: inputValues.about})
+      .finally(()=>{btnSubProfile.innerText = "Guardar"
+      btnSubProfile.disable = false});
+  openPopProfile.close();
 })
 
 
@@ -102,12 +117,22 @@ openPopProfile._form.addEventListener("submit", (event)=>{
 const openPopPlace = new PopupWithForm(popUpPlace)
 btnAddPlace.addEventListener("click" , ()=>{
   openPopPlace.open();
-  formPlace.enableValidation();
+  formplaceValidator.enableValidation();
   openPopPlace.setEventListeners();
 })
 
 openPopPlace._form.addEventListener("submit", (event)=>{
   event.preventDefault();
-  openPopPlace.setSubmitListeners();
+  const inputValues = openPopPlace._getInputValues();
+  btnSubPLace.innerText = "Creando...";
+  btnSubPLace.disable = true;
+    api.addNewCard({name: inputValues.name, link: inputValues.link})
+      .then((inputValues) => {
+        const NewCard = new Card(inputValues,".card", true);
+        const cardElement = NewCard.generateCard();
+        gallery.insertBefore(cardElement, gallery.firstChild);})
+        .finally(()=>{btnSubPLace.innerText = "Crear";
+        btnSubPLace.disable = false;});
+  openPopPlace.close();
 })
 

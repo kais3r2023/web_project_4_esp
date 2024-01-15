@@ -1,5 +1,5 @@
 
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 815px) {
 
     .profile{
         width: 80vw;
@@ -60,6 +60,11 @@
         justify-items: center;
         grid-template-rows: 2fr 1fr 1fr;
         grid-template-columns: auto;
+    }
+
+    .profile__avatar , .profile__avatar-overlay{
+        width: 168px;
+        height: 168px;
     }
 
     .profile__content{
