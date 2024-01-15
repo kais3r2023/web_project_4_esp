@@ -1,5 +1,5 @@
 
-@media screen and (max-width : 815px) {
+@media screen and (max-width: 815px) {
 
     .profile{
         width: 80vw;
@@ -43,7 +43,7 @@
     
 }
 
-@media screen and (max-width : 600px) {
+@media screen and (max-width: 600px) {
     .page{
         width: 80vw;
         margin-top: 28px;
