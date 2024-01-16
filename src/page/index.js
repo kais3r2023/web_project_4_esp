@@ -9,11 +9,13 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import { popUpProfile, myApiId, popUpPlace, popUpUpdateProfileIcon, editButtonProfile, btnAddPlace, 
 btnCloseProfile, btnClosePlace, btnCloseZoom, 
 btnCloseConfirmation, btnCloseUpdateProfileIcon, btnUpdateProfileIcon,btnSubProfile ,
-profileName, profileAbout, btnSubPLace, gallery, api} from "../components/Constants.js";
+profileName, profileAbout, btnSubPLace, gallery, api, popUpConfirmation, templateZoom} from "../components/Constants.js";
 import Section from "../components/Section.js";
 import btnCloseImg from "/src/images/Close Icon.png";
 import { Card } from "../components/Card.js";
 import UserInfo from "../components/UserInfo.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 //Carga de Imagenes
 //Img Tripleten Icon
@@ -63,9 +65,8 @@ const sectionCards = new Section({
 },".gallery" );
 sectionCards.renderer();
 
-// Borrado de Tarjetas 
-
-
+// confirmacion de Borrado de Tarjetas 
+export const popUpConfirmationCard = new PopupWithConfirmation(popUpConfirmation);
 
 
 
@@ -114,6 +115,10 @@ openPopProfile._form.addEventListener("submit", (event)=>{
       btnSubProfile.disable = false});
   openPopProfile.close();
 })
+
+//Manipulacion del Zoom de la Imagen de Tarjeta
+
+export const popupWithImage = new PopupWithImage(templateZoom);
 
 
 //Manipulación de formulario Place

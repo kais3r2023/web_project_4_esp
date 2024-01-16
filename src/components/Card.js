@@ -1,9 +1,8 @@
-import PopupWithImage from "./PopupWithImage.js";
 import trashIcon from "/src/images/Trash-Can.png";
 import likeIcon from "/src/images/like.png";
 import blackLikeIcon from "/src/images/black-like.png"
 import { popUpConfirmation, api, myApiId } from "./Constants.js";
-import PopupWithConfirmation from "./PopupWithConfirmation.js";
+import { popUpConfirmationCard, popupWithImage } from "../page/index.js";
 
 
 
@@ -68,7 +67,6 @@ class Card{
 
     deleteCard(){
       this._element.querySelector(".gallery__card_trash-can-icon").addEventListener("click", ()=>{
-        const popUpConfirmationCard = new PopupWithConfirmation(popUpConfirmation);
         popUpConfirmationCard.setEventListeners();
         popUpConfirmationCard.open();
         popUpConfirmation.querySelector("#btn-confirmation").addEventListener("click",()=>{
@@ -84,8 +82,6 @@ class Card{
 
     handleCardClick(){
       this._element.querySelector(".gallery__card_photo").addEventListener("click" , ()=>{
-        const templateZoom = document.querySelector("#template-zoom");
-        const popupWithImage = new PopupWithImage(templateZoom);
         const zoomImgSrc = ".template-zoom__image";
         const zoomTitle = ".template-zoom__title";
         popupWithImage.open(zoomImgSrc, zoomTitle, this._link, this._name);

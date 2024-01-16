@@ -1,4 +1,4 @@
-# Proyecto 5: Alrededor de los Estados Unidos
+# Proyecto 10: Alrededor de los Estados Unidos
 
 ### Descripción general
 
@@ -17,4 +17,4 @@
 
 * [Enlace al proyecto en Figma](https://www.figma.com/file/EGCbebw7k4kMOWt2qQcpEu/Web_Brief_Sprint_10_ES-%7C-JavaScript-aplicado?type=design&node-id=0-1&mode=design&t=o0gtB4c2GCkWdNLY-0)
 
-
+*
