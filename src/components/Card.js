@@ -47,9 +47,8 @@ class Card{
       }
 
       //Carga de Mis Likes Activos
-      let isLike = this._likes.some((like)=>like._id === myApiId);
       
-      if(isLike){
+      if(this._likes.some((like)=>like._id === myApiId)){
         this._element.querySelector(".gallery__card_bar-like").src = blackLikeIcon;
         this._element.querySelector(".gallery__card_bar-like").classList.add("black-like");
       } else{

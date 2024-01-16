@@ -11,6 +11,7 @@
         height: 100px;
     }
     .profile__content{
+        width: 196px;
         grid-column-gap: 0px;
     }
 
@@ -21,7 +22,8 @@
         line-height: normal;
     }
 
-    .profile__content_subtitle{
+    .profile__content-subtitle{
+        width: 196px;
         margin-top: 14px;
         font-size: 14px;
         line-height: 17px;
@@ -80,6 +82,7 @@
         text-align: center;
     }
     .profile__content-subtitle{
+        width: 196px;
         margin-top: 14px;
         font-size: 14px;
         line-height: 17px;

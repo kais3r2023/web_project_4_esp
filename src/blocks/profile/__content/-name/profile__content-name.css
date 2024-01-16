@@ -3,5 +3,7 @@
     font-weight: 500;
     font-size: 42px;
     line-height: 114%;
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }

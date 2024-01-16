@@ -53,8 +53,7 @@ const usersDefaultCards = await api.getCards();
 
 const generateCards = (data) => {
   const owner = data.owner;
-  let showDelete = !owner || owner._id ===  myApiId;
-  const defaultCard = new Card(data, ".card" , showDelete);
+  const defaultCard = new Card(data, ".card" , !owner || owner._id ===  myApiId);
   return defaultCard.generateCard();
 }
 
@@ -63,6 +62,11 @@ const sectionCards = new Section({
   renderer: generateCards
 },".gallery" );
 sectionCards.renderer();
+
+// Borrado de Tarjetas 
+
+
+
 
 
 /* Validación de Formularios */
